@@ -73,6 +73,7 @@
   <ItemGroup>
     <ClCompile Include="graphicsProject\Application_Manager\ApplicationManager.cpp" />
     <ClCompile Include="graphicsProject\EulerCamera\EulerCamera.cpp" />
+    <ClCompile Include="graphicsProject\InputHandler\inputhandler.cpp" />
     <ClCompile Include="graphicsProject\main.cpp" />
     <ClCompile Include="graphicsProject\Model\Model.cpp" />
     <ClCompile Include="graphicsProject\Renderer\Renderer.cpp" />
@@ -87,6 +88,7 @@
   <ItemGroup>
     <ClInclude Include="graphicsProject\Application_Manager\ApplicationManager.h" />
     <ClInclude Include="graphicsProject\EulerCamera\EulerCamera.h" />
+    <ClInclude Include="graphicsProject\InputHandler\inputhandler.h" />
     <ClInclude Include="graphicsProject\Model\Model.h" />
     <ClInclude Include="graphicsProject\Renderer\Renderer.h" />
     <ClInclude Include="graphicsProject\Shaders\shader.hpp" />

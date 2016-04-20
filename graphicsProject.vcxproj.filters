@@ -39,6 +39,9 @@
     <ClCompile Include="graphicsProject\Application_Manager\ApplicationManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="graphicsProject\InputHandler\inputhandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="graphicsProject\MultiColor.fragmentshader" />
@@ -64,6 +67,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="graphicsProject\Application_Manager\ApplicationManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="graphicsProject\InputHandler\inputhandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
