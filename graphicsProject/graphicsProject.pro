@@ -5,25 +5,25 @@ CONFIG -= qt
 
 LIBS = -lGL -lGLU -lGLEW -lglfw -lassimp -lSDL2 -lSDL2_mixer
 
-SOURCES += \
-    main.cpp \
-    Application Manager/ApplicationManager.cpp \
-    EulerCamera/EulerCamera.cpp \
-    Model/Model.cpp \
-    Renderer/Renderer.cpp \
-    Shaders/shader.cpp \
-    Texture/texture.cpp \
-    Texture/Texture_Loader/stb_image.c \
-    Application_Manager/ApplicationManager.cpp
+INCLUDEPATH += $$PWD/../glm
+DEPENDPATH += $$PWD/../glm
 
 HEADERS += \
-    Application Manager/ApplicationManager.h \
+    Application_Manager/ApplicationManager.h \
     EulerCamera/EulerCamera.h \
     Model/Model.h \
     Renderer/Renderer.h \
     Shaders/shader.hpp \
     Texture/Texture_Loader/stb_image.h \
-    Texture/texture.h \
-    Application_Manager/ApplicationManager.h
+    Texture/texture.h
 
-INCLUDEPATH += ../../glm
+SOURCES += \
+    Application_Manager/ApplicationManager.cpp \
+    EulerCamera/EulerCamera.cpp \
+    Model/Model.cpp \
+    Renderer/Renderer.cpp \
+    Shaders/shader.cpp \
+    Texture/texture.cpp \
+    main.cpp \
+    Texture/Texture_Loader/stb_image.c
+
