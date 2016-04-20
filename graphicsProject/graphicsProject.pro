@@ -15,7 +15,8 @@ HEADERS += \
     Renderer/Renderer.h \
     Shaders/shader.hpp \
     Texture/Texture_Loader/stb_image.h \
-    Texture/texture.h
+    Texture/texture.h \
+    InputHandler/inputhandler.h
 
 SOURCES += \
     Application_Manager/ApplicationManager.cpp \
@@ -25,5 +26,6 @@ SOURCES += \
     Shaders/shader.cpp \
     Texture/texture.cpp \
     main.cpp \
-    Texture/Texture_Loader/stb_image.c
+    Texture/Texture_Loader/stb_image.c \
+    InputHandler/inputhandler.cpp
 
