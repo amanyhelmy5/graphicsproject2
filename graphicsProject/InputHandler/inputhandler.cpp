@@ -48,8 +48,8 @@ void InputHandler::HandleKeyboardInput()
 void InputHandler::HandleMouseInput()
 {
     // check if a mouse moved
-    if (InputHandler::MouseXPos != ApplicationManager::ApplicationManager::WindowSizeWidth/2
-     || InputHandler::MouseYPos != ApplicationManager::ApplicationManager::WindowSizeHeight/2)
+    if (InputHandler::MouseXPos != ApplicationManager::WindowSizeWidth/2
+     || InputHandler::MouseYPos != ApplicationManager::WindowSizeHeight/2)
     {
         double mouseSpeed = 0.005; //it is just there to speed up or slow down the movements.
         double movedDistanceX;
