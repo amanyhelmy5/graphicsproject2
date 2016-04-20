@@ -96,6 +96,10 @@
     <ClInclude Include="graphicsProject\Texture\texture.h" />
     <ClInclude Include="graphicsProject\Texture\Texture_Loader\stb_image.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="graphicsProject\bricks.jpg" />
+    <Image Include="graphicsProject\uvtemplate.bmp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
