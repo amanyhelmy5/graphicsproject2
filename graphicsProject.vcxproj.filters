@@ -72,5 +72,8 @@
     <ClInclude Include="graphicsProject\InputHandler\inputhandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="graphicsProject\actions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

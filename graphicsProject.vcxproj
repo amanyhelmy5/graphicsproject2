@@ -86,6 +86,7 @@
     <None Include="graphicsProject\SimpleTransformWithColor.vertexshader" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="graphicsProject\actions.h" />
     <ClInclude Include="graphicsProject\Application_Manager\ApplicationManager.h" />
     <ClInclude Include="graphicsProject\EulerCamera\EulerCamera.h" />
     <ClInclude Include="graphicsProject\InputHandler\inputhandler.h" />
