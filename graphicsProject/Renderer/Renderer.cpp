@@ -27,7 +27,7 @@ void Renderer::Initialize()
 
 
 	createSquare(Square);
-	squareM =  glm::scale(1.0f,1.0f,1.0f) *glm::translate(0.0f,0.0f,0.0f)*glm::rotate(00.0f,glm::vec3(1.0f,0.0f,0.0f));
+    squareM = glm::scale(1.0f, 1.0f, 1.0f) * glm::translate(0.0f, 0.0f, 0.0f) * glm::rotate(0.0f, glm::vec3(1.0f, 0.0f, 0.0f));
 
 
 
@@ -208,7 +208,7 @@ void Renderer::initTransformation()
 	//////////////////////////////////////////////////////////////////////////
 
 	// Projection matrix : 
-	myCamera->SetPerspectiveProjection(45.0f,4.0f/3.0f,0.1f,100.0f);
+    myCamera->SetPerspectiveProjection(45.0f,4.0f/3.0f,0.1f,1000.0f);
 
 	// View matrix : 
 	myCamera->Reset(0.0,0.0,5.0,
