@@ -62,8 +62,7 @@ bool ApplicationManager::InitalizeApplication(int pWindowSizeWidth, int pWindowS
 
 	this->InitializeComponents(); // To be able to draw
 
-    mInput_handler = std::unique_ptr<InputHandler>(new InputHandler(this->mRenderer.get(), this->mWindow));
-
+    mInput_handler = std::unique_ptr<InputHandler>( InputHandler::instance(this->mRenderer.get(), this->mWindow) );
 	return true;
 }
 
@@ -95,8 +94,9 @@ void ApplicationManager::StartMainLoop()
 		glfwSwapBuffers(mWindow); //Displaying our finished scene
 		glfwPollEvents(); 
 
-        mInput_handler->HandleKeyboardInput();
-        mInput_handler->HandleMouseInput();
+        //mInput_handler->HandleMouseInput();
+        actions = mInput_handler->handle_keyboard_input();
+        mRenderer->HandleKeyboardInput(actions);
 
 		// Check if the window is closed to terminate
         if ( mInput_handler->is_key_pressed(GLFW_KEY_ESCAPE) || glfwWindowShouldClose(mWindow) == true )

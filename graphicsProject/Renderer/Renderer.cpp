@@ -88,53 +88,27 @@ void Renderer::Draw()
 	mySquare->Draw();
 }
 
-void Renderer::HandleKeyboardInput(int key)
+void Renderer::HandleKeyboardInput(Actions actions)
 {
-	printf("Renderer::KEY = %d \n",key);
-	switch (key)
-	{
-		//Moving forward
-	case GLFW_KEY_UP:
-	case GLFW_KEY_W:
+    if (actions.forwards)
 		myCamera->Walk(0.5);
-		break;
 
-		//Moving backword
-	case GLFW_KEY_DOWN:
-	case GLFW_KEY_S:
+    if (actions.backwards)
 		myCamera->Walk(-0.5);
-		break;
 
-		// Moving right
-	case GLFW_KEY_RIGHT:
-	case GLFW_KEY_D:
-		myCamera->Strafe(0.1);
-		break;
+    if (actions.right)
+        myCamera->Strafe(0.5);
 
-		// Moving left
-	case GLFW_KEY_LEFT:
-	case GLFW_KEY_A:
-		myCamera->Strafe(-0.1);
-		break;
+    if (actions.left)
+        myCamera->Strafe(-0.5);
 
-		// Moving up
-	case GLFW_KEY_SPACE:
-	case GLFW_KEY_R:
+    if (actions.jump)
 		myCamera->Fly(0.1);
-		break;
 
-		// Moving down
-	case GLFW_KEY_LEFT_CONTROL:
-	case GLFW_KEY_F:
+    if (actions.fall)
 		myCamera->Fly(-0.1);
-		break;
-	default:
-		break;
-	}
-
 
 	//continue the remaining movements.
-
 	myCamera->UpdateViewMatrix();
 }
 

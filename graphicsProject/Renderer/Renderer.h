@@ -19,6 +19,7 @@
 #include "../Texture/texture.h"
 #include "../Model/Model.h"
 #include "../EulerCamera/EulerCamera.h"
+#include "../actions.h"
 
 class Renderer
 {
@@ -52,7 +53,7 @@ class Renderer
 
 	glm::mat4 floorM;
 
-
+    Actions actions;
 
 
 public:
@@ -61,7 +62,7 @@ public:
 
 	void Initialize();
 	void Draw();
-	void HandleKeyboardInput(int key);
+    void HandleKeyboardInput(Actions);//Actions);
 	void HandleMouse(double deltaX,double deltaY);
 	void Update(double deltaTime);
 	void Cleanup();

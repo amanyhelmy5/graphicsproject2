@@ -12,6 +12,7 @@
 #include <memory>
 #include "../Renderer/Renderer.h"
 #include "../InputHandler/inputhandler.h"
+#include "../actions.h"
 
 class InputHandler;
 
@@ -20,7 +21,7 @@ class ApplicationManager
 	int mOpenGLMajorVersion;
 	int mOpenGLMinorVersion;
 	double mTime;
-
+    Actions actions;
 
     GLFWwindow* mWindow; //Why didn't we use smart pointers here? google it! ;)
 	std::unique_ptr<Renderer> mRenderer;
