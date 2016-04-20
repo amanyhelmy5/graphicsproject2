@@ -21,7 +21,8 @@ class ApplicationManager
 	int mOpenGLMinorVersion;
 	double mTime;
 
-	GLFWwindow* mWindow; //Why didn't we use smart pointers here? google it! ;)
+
+    GLFWwindow* mWindow; //Why didn't we use smart pointers here? google it! ;)
 	std::unique_ptr<Renderer> mRenderer;
     std::unique_ptr<InputHandler> mInput_handler;
 

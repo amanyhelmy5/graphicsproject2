@@ -27,6 +27,7 @@ class InputHandler
     static void MouseMoved(GLFWwindow* window, double xpos, double ypos);
 public:
     InputHandler(Renderer* mRenderer, GLFWwindow* mWindow);
+    bool is_key_pressed(int key);
     void HandleKeyboardInput();
     void HandleMouseInput();
 };

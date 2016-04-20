@@ -99,11 +99,11 @@ void ApplicationManager::StartMainLoop()
         mInput_handler->HandleMouseInput();
 
 		// Check if the window is closed to terminate
-		if ( glfwGetKey(mWindow, GLFW_KEY_ESCAPE ) == GLFW_PRESS ||
-			glfwWindowShouldClose(mWindow) == true )
-		{
-			exitLoop = true;
-		}
+        if ( mInput_handler->is_key_pressed(GLFW_KEY_ESCAPE) || glfwWindowShouldClose(mWindow) == true )
+        {
+            exitLoop = true;
+        }
+
 	} while (exitLoop == false);
 }
 

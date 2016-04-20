@@ -45,6 +45,11 @@ void InputHandler::HandleKeyboardInput()
     }
 }
 
+bool InputHandler::is_key_pressed(int key)
+{
+    return (glfwGetKey(mWindow, key ) == GLFW_PRESS) ? true : false;
+}
+
 void InputHandler::HandleMouseInput()
 {
     // check if a mouse moved
