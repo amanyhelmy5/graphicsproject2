@@ -2,7 +2,12 @@
 #define TEXTURE_H
 
 #include <string>
-#include <gl/glew.h>
+
+#ifdef __linux__
+    #include <GL/glew.h>
+#elif _WIN32
+    #include <gl/glew.h>
+#endif
 
 class Texture
 {

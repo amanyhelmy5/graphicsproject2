@@ -1,8 +1,14 @@
 #ifndef ApplicationManager_h__
 #define ApplicationManager_h__
-#include <Windows.h>
-#include <gl/glew.h>
-#include <gl/glfw3.h>
+#ifdef __linux__
+    #include <GL/glew.h>
+    #include <GLFW/glfw3.h>
+#elif _WIN32
+    #include <Windows.h>
+    #include <gl/glew.h>
+    #include <gl/glfw3.h>
+#endif
+
 #include <memory>
 #include "../Renderer/Renderer.h"
 

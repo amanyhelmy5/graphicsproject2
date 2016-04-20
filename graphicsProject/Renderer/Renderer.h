@@ -1,8 +1,15 @@
 #ifndef Renderer_h__
 #define Renderer_h__
 
-#include <gl/glew.h>
-#include <gl/glfw3.h>
+#ifdef __linux__
+    #include <GL/glew.h>
+    #include <GLFW/glfw3.h>
+#elif _WIN32
+    #include <gl/glew.h>
+    #include <gl/glfw3.h>
+#endif
+
+
 #include <glm.hpp>
 #include <gtc/matrix_transform.hpp>
 #include <memory>
