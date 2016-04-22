@@ -84,4 +84,12 @@
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="graphicsProject\bricks.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="graphicsProject\uvtemplate.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
 </Project>

@@ -43,6 +43,13 @@ class Renderer
 
 	std::unique_ptr<Texture> mTexture1;
 	std::unique_ptr<Texture> mTexture2;
+	std::unique_ptr<Texture>mTexture3;
+	std::unique_ptr<Texture>mTexture4;
+	std::unique_ptr<Texture>mTexture5;
+	std::unique_ptr<Texture>mTexture6;
+	std::unique_ptr<Texture>mTexture7;
+	std::unique_ptr<Texture>mTexture8;
+
 
 	GLuint mRenderingModeID;
 	RenderingMode mRenderingMode;
@@ -52,6 +59,12 @@ class Renderer
 	glm::mat4 squareM;
 
 	glm::mat4 floorM;
+	glm::mat4 square7M;
+	glm::mat4 square2M;
+	glm::mat4 square3M;
+	glm::mat4 square4M;
+	glm::mat4 square5M;
+	glm::mat4 square6M;
 
     Actions actions;
 
