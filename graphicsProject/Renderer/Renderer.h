@@ -18,6 +18,7 @@
 #include "../Shaders/shader.hpp"
 #include "../Texture/texture.h"
 #include "../Model/Model.h"
+#include "../Model/square.h"
 #include "../EulerCamera/EulerCamera.h"
 #include "../actions.h"
 
@@ -41,21 +42,12 @@ class Renderer
 
 	std::unique_ptr<EulerCamera> myCamera;
 
-	std::unique_ptr<Texture> mTexture1;
-	std::unique_ptr<Texture> mTexture2;
-	std::unique_ptr<Texture>mTexture3;
-	std::unique_ptr<Texture>mTexture4;
-	std::unique_ptr<Texture>mTexture5;
-	std::unique_ptr<Texture>mTexture6;
-	std::unique_ptr<Texture>mTexture7;
-	std::unique_ptr<Texture>mTexture8;
-
 
 	GLuint mRenderingModeID;
 	RenderingMode mRenderingMode;
 
 
-	std::unique_ptr<Model> Square;
+    std::unique_ptr<Square> square;
 	glm::mat4 squareM;
 
 	glm::mat4 floorM;
@@ -82,7 +74,6 @@ public:
 
 	void initShader();
 	void initTransformation();
-	void createSquare(std::unique_ptr<Model> &Square);
 
 };
 

@@ -17,7 +17,8 @@ HEADERS += \
     Texture/Texture_Loader/stb_image.h \
     Texture/texture.h \
     InputHandler/inputhandler.h \
-    actions.h
+    actions.h \
+    Model/square.h
 
 SOURCES += \
     Application_Manager/ApplicationManager.cpp \
@@ -28,5 +29,6 @@ SOURCES += \
     Texture/texture.cpp \
     main.cpp \
     Texture/Texture_Loader/stb_image.c \
-    InputHandler/inputhandler.cpp
+    InputHandler/inputhandler.cpp \
+    Model/square.cpp
 

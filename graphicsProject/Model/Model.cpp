@@ -5,9 +5,24 @@ Model::Model(void)
 {
 }
 
+Model::Model(std::string path)
+{
+    set_texture(path);
+}
+
 
 Model::~Model(void)
 {
+}
+
+void Model::set_texture(std::string path)
+{
+    mTexture = std::unique_ptr<Texture>( new Texture(path, 1) );
+}
+
+void Model::bind_texture()
+{
+    mTexture->Bind();
 }
 
 void Model::Initialize()
