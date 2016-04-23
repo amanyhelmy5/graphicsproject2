@@ -36,27 +36,13 @@ class Renderer
 	// Transformation
 	GLuint MatrixID;
 
-	std::unique_ptr<Model> myTriangle;
-	std::unique_ptr<Model> mySquare;
-
+    std::vector< std::shared_ptr<Model> > models;
 
 	std::unique_ptr<EulerCamera> myCamera;
 
 
 	GLuint mRenderingModeID;
 	RenderingMode mRenderingMode;
-
-
-    std::unique_ptr<Square> square;
-	glm::mat4 squareM;
-
-	glm::mat4 floorM;
-	glm::mat4 square7M;
-	glm::mat4 square2M;
-	glm::mat4 square3M;
-	glm::mat4 square4M;
-	glm::mat4 square5M;
-	glm::mat4 square6M;
 
     Actions actions;
 
@@ -71,6 +57,8 @@ public:
 	void HandleMouse(double deltaX,double deltaY);
 	void Update(double deltaTime);
 	void Cleanup();
+
+    void add_model(std::shared_ptr<Model> model);
 
 	void initShader();
 	void initTransformation();

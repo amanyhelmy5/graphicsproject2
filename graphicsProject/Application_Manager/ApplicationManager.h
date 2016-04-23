@@ -13,6 +13,7 @@
 #include "../Renderer/Renderer.h"
 #include "../InputHandler/inputhandler.h"
 #include "../actions.h"
+#include "../game.h"
 
 class InputHandler;
 
@@ -25,6 +26,7 @@ class ApplicationManager
 
     GLFWwindow* mWindow; //Why didn't we use smart pointers here? google it! ;)
 	std::unique_ptr<Renderer> mRenderer;
+    std::unique_ptr<Game> game;
     std::unique_ptr<InputHandler> mInput_handler;
 
 	void InitializeComponents();
