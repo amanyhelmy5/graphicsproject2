@@ -8,7 +8,7 @@ EulerCamera::EulerCamera(void)
 		0, 0, -1, 
 		0, 1, 0);
 
-	SetPerspectiveProjection(45.0f,4.0f/3.0f,0.1f,100.0f);
+    SetPerspectiveProjection(45.0f,4.0f/3.0f,0.1f,100000.0f);
 }
 
 EulerCamera::~EulerCamera(void)

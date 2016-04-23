@@ -23,14 +23,12 @@ void Renderer::Initialize()
 
 	createSquare(mySquare);
 
-	square6M = glm::scale(100.0f, 2.0f, 200.0f)* glm::translate(0.0f, 0.0f, -30.0f)*glm::rotate(180.0f, 0.0f, 0.0f, 1.0f);
-	square7M = glm::scale(100.0f, 2.0f, 200.0f)*glm::translate(0.0f, 0.0f, 30.0f)*glm::rotate(180.0f, 0.0f, 0.0f, 1.0f)*glm::rotate(180.0f, 0.0f, 1.0f, 0.0f);
-	//square2M = glm::scale(200.0f, 2.0f, 200.0f)*glm::translate(0.0f, -0.25f, 0.0f)*glm::rotate(90.0f, glm::vec3(1.0f, 0.0f, 0.0f));
-
-	square2M =glm::translate(-30.0f, 0.0f, 0.0f)*glm::rotate(90.0f, 0.0f, 1.0f, 0.0f)*glm::rotate(180.0f, 0.0f, 0.0f, 1.0f);//right
-	square3M = glm::translate(30.0f, 0.0f, 0.0f)*glm::rotate(90.0f, 0.0f, -1.0f, 0.0f)*glm::rotate(180.0f, 0.0f, 0.0f, 1.0f);//Left
-	square5M = glm::scale(200.0f, 2.0f, 200.0f)*glm::translate(0.0f, -30.0f, 0.0f)*glm::rotate(180.0f, 0.0f, 1.0f, 0.0f)*glm::rotate(90.0f, -1.0f, 0.0f, 0.0f);
-	square4M = glm::scale(200.0f, 2.0f, 200.0f)*glm::translate(0.0f, 30.0f, 0.0f)*glm::rotate(180.0f, 0.0f, 1.0f, 0.0f)*glm::rotate(90.0f, 1.0f, 0.0f, 0.0f);
+    square6M = glm::translate(0.0f, 0.0f, -500.0f) * glm::rotate(180.0f, 0.0f, 0.0f, 1.0f)                                         * glm::scale(500.0f, 500.0f, 500.0f);
+    square7M = glm::translate(0.0f, 0.0f, 500.0f)  * glm::rotate(180.0f, 0.0f, 0.0f, 1.0f) * glm::rotate(180.0f, 0.0f, 1.0f, 0.0f) * glm::scale(500.0f, 500.0f, 500.0f);
+    square2M = glm::translate(-500.0f, 0.0f, 0.0f) * glm::rotate(90.0f, 0.0f, 1.0f, 0.0f)  * glm::rotate(180.0f, 0.0f, 0.0f, 1.0f) * glm::scale(500.0f, 500.0f, 500.0f);//right
+    square3M = glm::translate(500.0f, 0.0f, 0.0f)  * glm::rotate(90.0f, 0.0f, -1.0f, 0.0f) * glm::rotate(180.0f, 0.0f, 0.0f, 1.0f) * glm::scale(500.0f, 500.0f, 500.0f);//Left
+    square5M = glm::translate(0.0f, -500.0f, 0.0f) * glm::rotate(180.0f, 0.0f, 1.0f, 0.0f) * glm::rotate(90.0f, -1.0f, 0.0f, 0.0f) * glm::scale(500.0f, 500.0f, 500.0f);
+    square4M = glm::translate(0.0f, 100.0f, 0.0f)  * glm::rotate(180.0f, 0.0f, 1.0f, 0.0f) * glm::rotate(90.0f, 1.0f, 0.0f, 0.0f)  * glm::scale(500.0f, 500.0f, 500.0f);
 
 
 	createSquare(Square);
@@ -53,7 +51,7 @@ void Renderer::Initialize()
 
 	initShader();
 
-	initTransformation();
+    initTransformation();
 
 
 
@@ -92,7 +90,7 @@ void Renderer::Draw()
 	mTexture1->Bind();
 	glm::mat4 squareMVP =  VP * squareM; 
 	glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &squareMVP[0][0]);
-	Square->Draw();
+    Square->Draw();
 
 
 	//the floor
@@ -144,22 +142,22 @@ void Renderer::Draw()
 void Renderer::HandleKeyboardInput(Actions actions)
 {
     if (actions.forwards)
-		myCamera->Walk(0.5);
+        myCamera->Walk(1);
 
     if (actions.backwards)
-		myCamera->Walk(-0.5);
+        myCamera->Walk(-1);
 
     if (actions.right)
-        myCamera->Strafe(0.5);
+        myCamera->Strafe(1);
 
     if (actions.left)
-        myCamera->Strafe(-0.5);
+        myCamera->Strafe(-1);
 
     if (actions.jump)
-		myCamera->Fly(0.1);
+        myCamera->Fly(1);
 
     if (actions.fall)
-		myCamera->Fly(-0.1);
+        myCamera->Fly(-1);
 
 	//continue the remaining movements.
 	myCamera->UpdateViewMatrix();

@@ -12,9 +12,6 @@
 
 class Model
 {
-	
-	
-
 	//VAO
 	GLuint mVertexArrayObjectID;
 	
@@ -36,7 +33,6 @@ public:
 	 void Initialize();
 	 void Draw();
 	 void Cleanup();
-
 };
 #endif // Model_h__
 
