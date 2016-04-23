@@ -42,6 +42,12 @@
     <ClCompile Include="graphicsProject\InputHandler\inputhandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="graphicsProject\Model\square.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="graphicsProject\game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="graphicsProject\MultiColor.fragmentshader" />
@@ -75,14 +81,12 @@
     <ClInclude Include="graphicsProject\actions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="graphicsProject\bricks.jpg">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="graphicsProject\uvtemplate.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
+    <ClInclude Include="graphicsProject\Model\square.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="graphicsProject\game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="graphicsProject\bricks.jpg">
