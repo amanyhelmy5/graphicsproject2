@@ -7,7 +7,7 @@
 
 class Game
 {
-    Renderer* mRenderer;
+    Renderer* m_renderer;
 
     std::shared_ptr<Square> test_square;
 
@@ -20,8 +20,8 @@ class Game
 
 public:
     Game(Renderer* renderer);
-    void Initialize();
-    void Update(double delta);
+    void initialize();
+    void update(double delta);
 };
 
 #endif // GAME_H

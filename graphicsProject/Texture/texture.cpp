@@ -5,12 +5,12 @@ using namespace std;
 
 Texture::Texture(const std::string& fileName, int texUnit_)
 {
-    unsigned char* data = stbi_load((fileName).c_str(), &width, &height, &numComponents, 4);
-	texUnit = texUnit_;
+    unsigned char* data = stbi_load((fileName).c_str(), &width, &height, &num_components, 4);
+	texture_unit = texUnit_;
     if(data == NULL)
 		cout<< "Unable to load texture: " << fileName << endl;
 
-	glActiveTexture(texUnit);
+	glActiveTexture(texture_unit);
     glGenTextures(1, &m_texture);
     glBindTexture(GL_TEXTURE_2D, m_texture); 
     
@@ -31,8 +31,8 @@ Texture::~Texture()
 	glDeleteTextures(1, &m_texture);
 }
 
-void Texture::Bind()
+void Texture::bind()
 {
-	glActiveTexture(texUnit);
+	glActiveTexture(texture_unit);
 	glBindTexture(GL_TEXTURE_2D, m_texture);
 }

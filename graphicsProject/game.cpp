@@ -2,11 +2,11 @@
 
 Game::Game(Renderer* renderer)
 {
-    mRenderer = renderer;
+    m_renderer = renderer;
 }
 
 
-void Game::Initialize()
+void Game::initialize()
 {
     test_square  =   std::shared_ptr<Square> (new Square("uvtemplate.bmp"));
     ground_plane =   std::shared_ptr<Square> (new Square("ground.png"));
@@ -24,16 +24,16 @@ void Game::Initialize()
     front_plane ->model_matrix = glm::translate(-500.0f, 0.0f, 0.0f) * glm::rotate(90.0f, 0.0f, 1.0f, 0.0f)  * glm::rotate(180.0f, 0.0f, 0.0f, 1.0f) * glm::scale(500.0f, 500.0f, 500.0f);
     back_plane  ->model_matrix = glm::translate(0.0f, 0.0f, 500.0f)  * glm::rotate(180.0f, 0.0f, 0.0f, 1.0f) * glm::rotate(180.0f, 0.0f, 1.0f, 0.0f) * glm::scale(500.0f, 500.0f, 500.0f);
 
-    mRenderer->add_model(test_square );
-    mRenderer->add_model(ground_plane);
-    mRenderer->add_model(top_plane   );
-    mRenderer->add_model(right_plane );
-    mRenderer->add_model(left_plane  );
-    mRenderer->add_model(front_plane );
-    mRenderer->add_model(back_plane  );
+    m_renderer->add_model(test_square );
+    m_renderer->add_model(ground_plane);
+    m_renderer->add_model(top_plane   );
+    m_renderer->add_model(right_plane );
+    m_renderer->add_model(left_plane  );
+    m_renderer->add_model(front_plane );
+    m_renderer->add_model(back_plane  );
 }
 
-void Game::Update(double delta)
+void Game::update(double delta)
 {
 
 }

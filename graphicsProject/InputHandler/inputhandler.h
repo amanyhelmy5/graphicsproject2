@@ -17,28 +17,28 @@
 class InputHandler
 {
     static InputHandler* m_pInstance;
-    static int KeyPressed; //Keep the code of the pressed key
-    static int KeyState; // keep the code that tells whether the key was pressed, released of repeated
-    static double MouseXPos; //Keep the x-value of the mouse position
-    static double MouseYPos; //Keep the y-value of the mouse position
-    Actions actions;
+    static int KEY_PRESSED; //Keep the code of the pressed key
+    static int KEY_STATE; // keep the code that tells whether the key was pressed, released of repeated
+    static double m_X_mouse_position; //Keep the x-value of the mouse position
+    static double m_Y_mouse_position; //Keep the y-value of the mouse position
+    Actions m_actions;
 
-    Renderer* mRenderer;
-    GLFWwindow* mWindow;
+    Renderer* m_renderer;
+    GLFWwindow* m_window;
 
     static void _on_key_event(GLFWwindow* window, int key, int scancode, int action, int mods);
-    static void MouseMoved(GLFWwindow* window, double xpos, double ypos);
+    static void mouse_moved(GLFWwindow* window, double xpos, double ypos);
 
-    InputHandler(Renderer* mRenderer, GLFWwindow* mWindow);
+    InputHandler(Renderer* renderer, GLFWwindow* window);
 
 public:
-    static InputHandler* instance(Renderer* mRenderer, GLFWwindow* mWindow);
+    static InputHandler* instance(Renderer* m_renderer, GLFWwindow* m_window);
     static InputHandler* instance();
     void handle_key_press();
     void handle_key_release();
     bool is_key_pressed(int key);
     Actions handle_keyboard_input();
-    void HandleMouseInput();
+    void handle_mouse_input();
 };
 
 #endif // INPUTHANDLER_H

@@ -2,10 +2,10 @@
 
 InputHandler* InputHandler::m_pInstance = NULL;
 
-int InputHandler::KeyPressed = -1;
-int InputHandler::KeyState = -1;
-double InputHandler::MouseXPos = -1.0;
-double InputHandler::MouseYPos = -1.0;
+int InputHandler::KEY_PRESSED = -1;
+int InputHandler::KEY_STATE = -1;
+double InputHandler::m_X_mouse_position = -1.0;
+double InputHandler::m_Y_mouse_position = -1.0;
 
 // singleton
 InputHandler* InputHandler::instance(Renderer *Renderer, GLFWwindow *Window)
@@ -21,20 +21,20 @@ InputHandler* InputHandler::instance()
     return InputHandler::m_pInstance;
 }
 
-InputHandler::InputHandler(Renderer* mRenderer, GLFWwindow* mWindow)
+InputHandler::InputHandler(Renderer* renderer, GLFWwindow* window)
 {
-    this->mRenderer = mRenderer;
-    this->mWindow = mWindow;
+    this->m_renderer = renderer;
+    this->m_window = window;
 
     // Ensure we can capture the escape key being pressed below
-    glfwSetInputMode(mWindow, GLFW_STICKY_KEYS, GL_TRUE);
-    glfwSetKeyCallback(mWindow, &this->_on_key_event);
+    glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
+    glfwSetKeyCallback(window, &this->_on_key_event);
 
     //initialize a value for the mouse position.
-    MouseXPos = ApplicationManager::WindowSizeWidth/2;
-    MouseYPos = ApplicationManager::WindowSizeHeight/2;
-    glfwSetCursorPos(mWindow,MouseXPos,MouseYPos);
-    glfwSetCursorPosCallback(mWindow, &this->MouseMoved);
+    m_X_mouse_position = ApplicationManager::WINDOW_SIZE_WIDTH/2;
+    m_Y_mouse_position = ApplicationManager::WINDOW_SIZE_HEIGHT/2;
+    glfwSetCursorPos(window, m_X_mouse_position, m_Y_mouse_position);
+    glfwSetCursorPosCallback(window, &this->mouse_moved);
 }
 
 // Keyboard pressing event
@@ -45,12 +45,12 @@ void InputHandler::_on_key_event(GLFWwindow* window, int key, int scancode, int 
         exit(1);
     if (action == GLFW_PRESS || action == GLFW_REPEAT)
     {
-        InputHandler::KeyPressed = key;
+        InputHandler::KEY_PRESSED = key;
         input->handle_key_press();
     }
     if(action == GLFW_RELEASE)
     {
-        InputHandler::KeyPressed = key;
+        InputHandler::KEY_PRESSED = key;
         input->handle_key_release();
     }
 }
@@ -58,72 +58,72 @@ void InputHandler::_on_key_event(GLFWwindow* window, int key, int scancode, int 
 Actions InputHandler::handle_keyboard_input()
 {
     handle_key_press();
-    return this->actions;
+    return this->m_actions;
 }
 
 void InputHandler::handle_key_press()
 {
-    if (InputHandler::KeyPressed != -1)
+    if (InputHandler::KEY_PRESSED != -1)
     {
-        if (InputHandler::KeyPressed == GLFW_KEY_UP || InputHandler::KeyPressed == GLFW_KEY_W)
-            actions.forwards = true;
-        else if (InputHandler::KeyPressed == GLFW_KEY_DOWN || InputHandler::KeyPressed == GLFW_KEY_S)
-            actions.backwards = true;
-        if (InputHandler::KeyPressed == GLFW_KEY_RIGHT || InputHandler::KeyPressed == GLFW_KEY_D)
-            actions.right = true;
-        else if (InputHandler::KeyPressed == GLFW_KEY_LEFT || InputHandler::KeyPressed == GLFW_KEY_A)
-            actions.left = true;
-        if (InputHandler::KeyPressed == GLFW_KEY_SPACE)
-            actions.jump = true;
-        if (InputHandler::KeyPressed == GLFW_KEY_LEFT_CONTROL)
-            actions.fall = true;
-        InputHandler::KeyPressed = -1;
+        if (InputHandler::KEY_PRESSED == GLFW_KEY_UP || InputHandler::KEY_PRESSED == GLFW_KEY_W)
+            m_actions.forwards = true;
+        else if (InputHandler::KEY_PRESSED == GLFW_KEY_DOWN || InputHandler::KEY_PRESSED == GLFW_KEY_S)
+            m_actions.backwards = true;
+        if (InputHandler::KEY_PRESSED == GLFW_KEY_RIGHT || InputHandler::KEY_PRESSED == GLFW_KEY_D)
+            m_actions.right = true;
+        else if (InputHandler::KEY_PRESSED == GLFW_KEY_LEFT || InputHandler::KEY_PRESSED == GLFW_KEY_A)
+            m_actions.left = true;
+        if (InputHandler::KEY_PRESSED == GLFW_KEY_SPACE)
+            m_actions.jump = true;
+        if (InputHandler::KEY_PRESSED == GLFW_KEY_LEFT_CONTROL)
+            m_actions.fall = true;
+        InputHandler::KEY_PRESSED = -1;
     }
 }
 
 void InputHandler::handle_key_release()
 {
-    if (InputHandler::KeyPressed != -1)
+    if (InputHandler::KEY_PRESSED != -1)
     {
-        if (InputHandler::KeyPressed == GLFW_KEY_UP || InputHandler::KeyPressed == GLFW_KEY_W)
-            actions.forwards = false;
-        else if (InputHandler::KeyPressed == GLFW_KEY_DOWN || InputHandler::KeyPressed == GLFW_KEY_S)
-            actions.backwards = false;
-        if (InputHandler::KeyPressed == GLFW_KEY_RIGHT || InputHandler::KeyPressed == GLFW_KEY_D)
-            actions.right = false;
-        else if (InputHandler::KeyPressed == GLFW_KEY_LEFT || InputHandler::KeyPressed == GLFW_KEY_A)
-            actions.left = false;
-        if (InputHandler::KeyPressed == GLFW_KEY_SPACE)
-            actions.jump = false;
-        if (InputHandler::KeyPressed == GLFW_KEY_LEFT_CONTROL)
-            actions.fall = false;
-        InputHandler::KeyPressed = -1;
+        if (InputHandler::KEY_PRESSED == GLFW_KEY_UP || InputHandler::KEY_PRESSED == GLFW_KEY_W)
+            m_actions.forwards = false;
+        else if (InputHandler::KEY_PRESSED == GLFW_KEY_DOWN || InputHandler::KEY_PRESSED == GLFW_KEY_S)
+            m_actions.backwards = false;
+        if (InputHandler::KEY_PRESSED == GLFW_KEY_RIGHT || InputHandler::KEY_PRESSED == GLFW_KEY_D)
+            m_actions.right = false;
+        else if (InputHandler::KEY_PRESSED == GLFW_KEY_LEFT || InputHandler::KEY_PRESSED == GLFW_KEY_A)
+            m_actions.left = false;
+        if (InputHandler::KEY_PRESSED == GLFW_KEY_SPACE)
+            m_actions.jump = false;
+        if (InputHandler::KEY_PRESSED == GLFW_KEY_LEFT_CONTROL)
+            m_actions.fall = false;
+        InputHandler::KEY_PRESSED = -1;
     }
     //mRenderer->HandleKeyboardInput(actions);
 }
 
 bool InputHandler::is_key_pressed(int key)
 {
-    return (glfwGetKey(mWindow, key ) == GLFW_PRESS) ? true : false;
+    return (glfwGetKey(m_window, key ) == GLFW_PRESS) ? true : false;
 }
 
 // Mouse movement event
-void InputHandler::MouseMoved(GLFWwindow* window, double xpos, double ypos)
+void InputHandler::mouse_moved(GLFWwindow* window, double xpos, double ypos)
 {
     InputHandler* input = InputHandler::instance();
     if(!input)
         exit(1);
     //set the new mouse position to the MousXPos and MousYPos
-     InputHandler::MouseXPos = xpos;
-     InputHandler::MouseYPos = ypos;
-     input->HandleMouseInput();
+     InputHandler::m_X_mouse_position = xpos;
+     InputHandler::m_Y_mouse_position = ypos;
+     input->handle_mouse_input();
 }
 
-void InputHandler::HandleMouseInput()
+void InputHandler::handle_mouse_input()
 {
     // check if a mouse moved
-    if (InputHandler::MouseXPos != ApplicationManager::WindowSizeWidth/2
-     || InputHandler::MouseYPos != ApplicationManager::WindowSizeHeight/2)
+    if (InputHandler::m_X_mouse_position != ApplicationManager::WINDOW_SIZE_WIDTH/2
+     || InputHandler::m_Y_mouse_position != ApplicationManager::WINDOW_SIZE_HEIGHT/2)
     {
         double mouseSpeed = 0.005; //it is just there to speed up or slow down the movements.
         double movedDistanceX;
@@ -132,15 +132,15 @@ void InputHandler::HandleMouseInput()
         //  the distance (old position - new position)
         // in other words:  how far is the mouse from the center of the window ? The bigger this value, the more we want to turn.
         // note that the old position (x_old, y_old) is fixed in this application (x_old = WindoSizeWidth/2, y_old = ApplicationManager::WindowSizeHeight/2)
-        movedDistanceX = double(ApplicationManager::WindowSizeWidth/2 - MouseXPos)*mouseSpeed;
-        movedDistanceY = double(ApplicationManager::WindowSizeHeight/2 - MouseYPos)*mouseSpeed;
+        movedDistanceX = double(ApplicationManager::WINDOW_SIZE_WIDTH/2 - m_X_mouse_position)*mouseSpeed;
+        movedDistanceY = double(ApplicationManager::WINDOW_SIZE_HEIGHT/2 - m_Y_mouse_position)*mouseSpeed;
 
         // Pass the two distances to the Renderer (our drawings)
-        mRenderer->HandleMouse( movedDistanceX, movedDistanceY);
+        m_renderer->update_camera_view( movedDistanceX, movedDistanceY);
 
         //Force the new position of the mouse to be in the middle of the window
-        MouseXPos = ApplicationManager::WindowSizeWidth/2;
-        MouseYPos = ApplicationManager::WindowSizeHeight/2;
-        glfwSetCursorPos(mWindow,MouseXPos,MouseYPos);
+        m_X_mouse_position = ApplicationManager::WINDOW_SIZE_WIDTH/2;
+        m_Y_mouse_position = ApplicationManager::WINDOW_SIZE_HEIGHT/2;
+        glfwSetCursorPos(m_window,m_X_mouse_position,m_Y_mouse_position);
     }
 }

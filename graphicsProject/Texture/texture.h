@@ -13,12 +13,12 @@ class Texture
 {
 
 public:
-	/*unsigned*/ int width, height;
-	int numComponents;
+    /*unsigned*/ int width, height;
+    int num_components;
 	unsigned char * data;
-	int texUnit;
-	void Bind();
-	Texture(const std::string& fileName, int texUnit);
+    int texture_unit;
+    void bind();
+    Texture(const std::string& file_name, int texture_unit);
 	virtual ~Texture();
 
 protected:

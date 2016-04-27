@@ -2,122 +2,122 @@
 
 EulerCamera::EulerCamera(void)
 {
-	mAngleX = 0;
-	mAngleY = 0;
-	this->Reset(0, 0, 0, 
+    m_angle_X = 0;
+    m_angle_Y = 0;
+    this->reset(0, 0, 0,
 		0, 0, -1, 
 		0, 1, 0);
 
-    SetPerspectiveProjection(45.0f,4.0f/3.0f,0.1f,100000.0f);
+    set_perspective_projection(45.0f,4.0f/3.0f,0.1f,100000.0f);
 }
 
 EulerCamera::~EulerCamera(void)
 {
 }
 
-glm::vec3 EulerCamera::GetLookDirection()
+glm::vec3 EulerCamera::get_look_direction()
 {
-	return -mDirection;
+    return -m_direction;
 }
 
-void EulerCamera::Reset(float eyeX, float eyeY, float eyeZ, float centerX, float centerY, float centerZ, float upX, float upY, float upZ)
+void EulerCamera::reset(float eyeX, float eyeY, float eyeZ, float centerX, float centerY, float centerZ, float upX, float upY, float upZ)
 {
 	glm::vec3 eyePt(eyeX, eyeY, eyeZ);
 	glm::vec3 centerPt(centerX, centerY, centerZ);
 	glm::vec3 upVec(upX, upY, upZ);
-	Reset(eyePt, centerPt, upVec);
+    reset(eyePt, centerPt, upVec);
 }
 
-void EulerCamera::Reset(const glm::vec3 &eye, const glm::vec3 &center, glm::vec3 &up)
+void EulerCamera::reset(const glm::vec3 &eye, const glm::vec3 &center, glm::vec3 &up)
 {
-	mPosition = eye;
+    m_position = eye;
 	
 	//still needs normalization
-	mDirection = center - mPosition;
+    m_direction = center - m_position;
 	//i = j x k
-	mRight = glm::cross( mDirection,up );
+    m_right = glm::cross(m_direction, up);
 	//j = k x i
-	mUp = up;
+    m_up = up;
 	//normalize all
-	mUp = glm::normalize(mUp);
-	mRight = glm::normalize(mRight);
-	mDirection = glm::normalize(mDirection);
+    m_up = glm::normalize(m_up);
+    m_right = glm::normalize(m_right);
+    m_direction = glm::normalize(m_direction);
 
-	mViewMatrix = glm::lookAt(mPosition,center,mUp);
+    m_view_matrix = glm::lookAt(m_position, center, m_up);
 	//UpdateViewMatrix();
 }
 
-glm::mat4 EulerCamera::GetViewMatrix()
+glm::mat4 EulerCamera::get_view_matrix()
 {
-	return mViewMatrix;
+    return m_view_matrix;
 }
 
-void EulerCamera::UpdateViewMatrix()
+void EulerCamera::update_view_matrix()
 {
 	const float PI = 3.14f;
-	mDirection = glm::vec3(
-		-cos(mAngleY)*sin(mAngleX), 
-		 sin(mAngleY), 
-		-cos(mAngleY)*cos(mAngleX));
+    m_direction = glm::vec3(
+        -cos(m_angle_Y)*sin(m_angle_X),
+         sin(m_angle_Y),
+        -cos(m_angle_Y)*cos(m_angle_X));
 	
 
-	mDirection = glm::normalize(mDirection);
+    m_direction = glm::normalize(m_direction);
 
 
-	mRight = glm::cross(mDirection,glm::vec3(0,1,0));
+    m_right = glm::cross(m_direction,glm::vec3(0,1,0));
 
-	mUp = glm::cross(mRight,mDirection);
+    m_up = glm::cross(m_right,m_direction);
 
-	glm::vec3 center = mPosition + mDirection;
-	mViewMatrix = glm::lookAt(mPosition,center,mUp);
+    glm::vec3 center = m_position + m_direction;
+    m_view_matrix = glm::lookAt(m_position, center, m_up);
 }
 
-glm::mat4 EulerCamera::GetProjectionMatrix()
+glm::mat4 EulerCamera::get_projection_matrix()
 {
-	return mProjectionMatrix;
+    return m_projection_matrix;
 }
 
-void EulerCamera::SetPerspectiveProjection(float FOV, float aspectRatio, float near, float far)
+void EulerCamera::set_perspective_projection(float FOV, float aspectRatio, float near, float far)
 {
-	mProjectionMatrix = glm::perspective(FOV,aspectRatio,near,far);
+    m_projection_matrix = glm::perspective(FOV, aspectRatio, near, far);
 }
 
-void EulerCamera::Slide(float stepR, float stepU, float stepD)
+void EulerCamera::slide(float stepR, float stepU, float stepD)
 {
-	mPosition += stepR *mRight;
-	mPosition += stepU * mUp;
+    m_position += stepR *m_right;
+    m_position += stepU * m_up;
 	//next transition needs to be tested!!.
-	mPosition += stepD * mDirection;
+    m_position += stepD * m_direction;
 }
 
-void EulerCamera::Yaw(float angleDegrees)
+void EulerCamera::yaw(float angle_degrees)
 {
-	mAngleX +=angleDegrees;
+    m_angle_X +=angle_degrees;
 }
 
-void EulerCamera::Pitch(float angleDegrees)
+void EulerCamera::pitch(float angle_degrees)
 {
 	double PI = 3.14;
-	if (mAngleY + angleDegrees < PI/2.0 && mAngleY + angleDegrees > - PI/2.0)
-		mAngleY +=angleDegrees;
+    if (m_angle_Y + angle_degrees < PI/2.0 && m_angle_Y + angle_degrees > - PI/2.0)
+        m_angle_Y +=angle_degrees;
 }
 
-void EulerCamera::Roll(float angleDegrees)
+void EulerCamera::roll(float angle_degrees)
 {
-	//no ROLL!!!
+    m_angle_Z += angle_degrees;
 }
 
-void EulerCamera::Walk(float dist)
+void EulerCamera::walk(float distance)
 {
-	mPosition += dist * mDirection;
+    m_position += distance * m_direction;
 }
 
-void EulerCamera::Strafe(float dist)
+void EulerCamera::strafe(float distance)
 {
-	mPosition += dist *mRight;
+    m_position += distance *m_right;
 }
 
-void EulerCamera::Fly(float dist)
+void EulerCamera::fly(float distance)
 {
-	mPosition += dist * mUp;
+    m_position += distance * m_up;
 }

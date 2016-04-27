@@ -10,116 +10,97 @@ Renderer::Renderer()
 
 Renderer::~Renderer()
 {
-	Cleanup();
+    clean_up();
 }
 
-void Renderer::Initialize()
+void Renderer::initialize()
 {
-	myCamera = std::unique_ptr<EulerCamera>(new EulerCamera());
+	m_camera = std::unique_ptr<EulerCamera>(new EulerCamera());
 
-	initShader();
+    initialize_shaders();
 
-    initTransformation();
+    m_matrixID = glGetUniformLocation(m_programID, "MVP");
 }
 
 
-void Renderer::Update(double deltaTime)
+void Renderer::update(double deltaTime)
 {
-	double triangle1RotationSpeed = 0.06;
-	double trianglesRotationAngle = triangle1RotationSpeed*deltaTime;
-	glm::mat4 rotationMat = glm::rotate((float)trianglesRotationAngle,glm::vec3(0.0,1.0,0.0));
+
 }
 
 
 
-void Renderer::Draw()
+void Renderer::draw()
 {		
 	// Use our shader
-	glUseProgram(programID);
+    glUseProgram(m_programID);
 
 	//send the rendering mode to the shader.
-	mRenderingMode = RenderingMode::TEXTURE_ONLY;
-	glUniform1i(mRenderingModeID,mRenderingMode);
+	m_rendering_mode = RenderingMode::TEXTURE_ONLY;
+    glUniform1i(m_rendering_modeID, m_rendering_mode);
 
 	// Send our transformation to the currently bound shader, 
 	// in the "MVP" uniform
-	glm::mat4 VP = myCamera->GetProjectionMatrix() * myCamera->GetViewMatrix();
+    glm::mat4 VP = m_camera->get_projection_matrix() * m_camera->get_view_matrix();
 
     glm::mat4 squareMVP;
 
     //Render all the models
-    for (int i = 0; i < models.size(); i++)
+    for (int i = 0; i < m_models.size(); i++)
     {
-        models[i]->bind_texture();
-        squareMVP = VP * models[i]->model_matrix;
-        glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &squareMVP[0][0]);
-        models[i]->Draw();
+        m_models[i]->bind_texture();
+        squareMVP = VP * m_models[i]->model_matrix;
+        glUniformMatrix4fv(m_matrixID, 1, GL_FALSE, &squareMVP[0][0]);
+        m_models[i]->draw();
     }
 }
 
-void Renderer::HandleKeyboardInput(Actions actions)
+void Renderer::handle_player_actions(Actions actions)
 {
     if (actions.forwards)
-        myCamera->Walk(1);
+        m_camera->walk(1);
 
     if (actions.backwards)
-        myCamera->Walk(-1);
+        m_camera->walk(-1);
 
     if (actions.right)
-        myCamera->Strafe(1);
+        m_camera->strafe(1);
 
     if (actions.left)
-        myCamera->Strafe(-1);
+        m_camera->strafe(-1);
 
     if (actions.jump)
-        myCamera->Fly(1);
+        m_camera->fly(1);
 
     if (actions.fall)
-        myCamera->Fly(-1);
+        m_camera->fly(-1);
 
 	//continue the remaining movements.
-	myCamera->UpdateViewMatrix();
+    m_camera->update_view_matrix();
 }
 
-void Renderer::HandleMouse(double deltaX,double deltaY)
+void Renderer::update_camera_view(double delta_X,double delta_Y)
 {
-	printf("Renderer::MOUSE = %f , %f \n",deltaX,deltaY);
-
-	myCamera->Yaw(deltaX);
-	myCamera->Pitch(deltaY);
-	myCamera->UpdateViewMatrix();
-
+    m_camera->yaw(delta_X);
+    m_camera->pitch(delta_Y);
+    m_camera->update_view_matrix();
 }
 
 
-void Renderer::initShader()
+void Renderer::initialize_shaders()
 {
 	// Create and compile our GLSL program from the shaders
-	programID = LoadShaders( "SimpleTransformWithColor.vertexshader", "MultiColor.fragmentshader" );
+    m_programID = LoadShaders( "SimpleTransformWithColor.vertexshader", "MultiColor.fragmentshader" );
 
-	mRenderingModeID = glGetUniformLocation(programID,"RenderingMode");
-}
-
-void Renderer::initTransformation()
-{
-
-	MatrixID = glGetUniformLocation(programID, "MVP");
-
-	// Projection matrix : 
-    myCamera->SetPerspectiveProjection(45.0f,4.0f/3.0f,0.1f,1000.0f);
-
-	// View matrix : 
-	myCamera->Reset(0.0,0.0,5.0,
-		0,0,0,
-		0,1,0);
+    m_rendering_modeID = glGetUniformLocation(m_programID,"RenderingMode");
 }
 
 void Renderer::add_model(std::shared_ptr<Model> model)
 {
-    models.push_back( model );
+    m_models.push_back( model );
 }
 
-void Renderer::Cleanup()
+void Renderer::clean_up()
 {
-	glDeleteProgram(programID);
+    glDeleteProgram(m_programID);
 }

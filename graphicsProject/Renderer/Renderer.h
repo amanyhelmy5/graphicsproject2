@@ -31,37 +31,32 @@ class Renderer
 		BLEND
 	};
 
-	GLuint programID;
+    GLuint m_programID;
+    GLuint m_matrixID;
 
-	// Transformation
-	GLuint MatrixID;
+    std::vector< std::shared_ptr<Model> > m_models;
+    std::unique_ptr<EulerCamera> m_camera;
 
-    std::vector< std::shared_ptr<Model> > models;
+    GLuint m_rendering_modeID;
+    RenderingMode m_rendering_mode;
 
-	std::unique_ptr<EulerCamera> myCamera;
-
-
-	GLuint mRenderingModeID;
-	RenderingMode mRenderingMode;
-
-    Actions actions;
+    Actions m_actions;
 
 
 public:
 	Renderer();
 	~Renderer();
 
-	void Initialize();
-	void Draw();
-    void HandleKeyboardInput(Actions);//Actions);
-	void HandleMouse(double deltaX,double deltaY);
-	void Update(double deltaTime);
-	void Cleanup();
+    void initialize();
+    void draw();
+    void handle_player_actions(Actions);
+    void update_camera_view(double deltaX, double deltaY);
+    void update(double deltaTime);
+    void clean_up();
 
     void add_model(std::shared_ptr<Model> model);
 
-	void initShader();
-	void initTransformation();
+    void initialize_shaders();
 
 };
 

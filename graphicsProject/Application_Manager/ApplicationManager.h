@@ -19,29 +19,30 @@ class InputHandler;
 
 class ApplicationManager
 {
-	int mOpenGLMajorVersion;
-	int mOpenGLMinorVersion;
-	double mTime;
-    Actions actions;
+    int m_openGL_major_version;
+    int m_openGL_minor_version;
+    Actions m_actions;
 
-    GLFWwindow* mWindow; //Why didn't we use smart pointers here? google it! ;)
-	std::unique_ptr<Renderer> mRenderer;
-    std::unique_ptr<Game> game;
-    std::unique_ptr<InputHandler> mInput_handler;
+    GLFWwindow* m_window; //Why didn't we use smart pointers here? google it! ;)
+    std::unique_ptr<Renderer> m_renderer;
+    std::unique_ptr<Game> m_game;
+    std::unique_ptr<InputHandler> m_input_handler;
 
-	void InitializeComponents();
-	void Update();
-	static void WindowResized(GLFWwindow* window, int width, int height);
+    void initialize_components();
+    void update();
+    static void _on_window_resize(GLFWwindow* window, int width, int height);
+
+    double m_time;
 
 public:
-    static int WindowSizeWidth;
-    static int WindowSizeHeight;
+    static int WINDOW_SIZE_WIDTH;
+    static int WINDOW_SIZE_HEIGHT;
 
-	ApplicationManager(int pOpenGLMajorVersion, int pOpenGLMinorVersion);
+    ApplicationManager(int openGL_major_version, int openGL_minor_version);
 
-	bool InitalizeApplication(int pWindowSizeWidth, int pWindowSizeHeight);
-	void StartMainLoop();
-	void CloseApplication();
+    bool initalize_application(int window_size_width, int window_size_height);
+    void start_main_loop();
+    void close_application();
 
 	~ApplicationManager(void);
 };
