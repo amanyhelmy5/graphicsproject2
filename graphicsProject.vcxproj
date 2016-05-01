@@ -72,6 +72,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="graphicsProject\Application_Manager\ApplicationManager.cpp" />
+    <ClCompile Include="graphicsProject\Collision\Bounding_Box.cpp" />
+    <ClCompile Include="graphicsProject\Collision\Collidable_Model.cpp" />
+    <ClCompile Include="graphicsProject\Collision\Collision_Manager.cpp" />
     <ClCompile Include="graphicsProject\EulerCamera\EulerCamera.cpp" />
     <ClCompile Include="graphicsProject\game.cpp" />
     <ClCompile Include="graphicsProject\InputHandler\inputhandler.cpp" />
@@ -90,6 +93,9 @@
   <ItemGroup>
     <ClInclude Include="graphicsProject\actions.h" />
     <ClInclude Include="graphicsProject\Application_Manager\ApplicationManager.h" />
+    <ClInclude Include="graphicsProject\Collision\Bounding_Box.h" />
+    <ClInclude Include="graphicsProject\Collision\Collidable_Model.h" />
+    <ClInclude Include="graphicsProject\Collision\Collision_Manager.h" />
     <ClInclude Include="graphicsProject\EulerCamera\EulerCamera.h" />
     <ClInclude Include="graphicsProject\game.h" />
     <ClInclude Include="graphicsProject\InputHandler\inputhandler.h" />

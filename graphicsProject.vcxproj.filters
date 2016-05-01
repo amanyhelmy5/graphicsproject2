@@ -48,6 +48,15 @@
     <ClCompile Include="graphicsProject\game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="graphicsProject\Collision\Bounding_Box.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="graphicsProject\Collision\Collidable_Model.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="graphicsProject\Collision\Collision_Manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="graphicsProject\MultiColor.fragmentshader" />
@@ -85,6 +94,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="graphicsProject\game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="graphicsProject\Collision\Bounding_Box.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="graphicsProject\Collision\Collidable_Model.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="graphicsProject\Collision\Collision_Manager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
