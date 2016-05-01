@@ -1,8 +1,18 @@
 #include "Model.h"
 
 
+glm::mat4 Model::model_matrix() const
+{
+    return m_model_matrix;
+}
+
 Model::Model(void)
 {
+    set_translation(0.0f, 0.0f, 0.0f);
+    set_rotation(0.0f, 1.0f, 0.0f, 0.0f);
+    set_rotation(0.0f, 0.0f, 1.0f, 0.0f);
+    set_rotation(0.0f, 0.0f, 0.0f, 1.0f);
+    set_scale(1.0f, 1.0f, 1.0f);
 }
 
 Model::Model(std::string path)
@@ -77,6 +87,48 @@ void Model::draw()
 		//no indices provided.
 		glDrawArrays(GL_TRIANGLES, 0, vertex_data.size());
 	}
+
+    m_scale_matrix = glm::scale(m_scale.x, m_scale.y, m_scale.z);
+    m_rotation_matrix = glm::rotate(m_rotation.w, m_rotation.x, m_rotation.y, m_rotation.z);
+    m_translation_matrix = glm::translate(m_position.x, m_position.y, m_position.z);
+    m_model_matrix = m_translation_matrix * m_rotation_matrix * m_scale_matrix;
+}
+
+void Model::set_translation(float x, float y, float z)
+{
+    m_position = glm::vec3(x, y, z);
+}
+
+void Model::set_rotation(float angle, float x, float y, float z)
+{
+    m_rotation = glm::vec4(angle, x, y, z);
+}
+
+void Model::set_scale(float x, float y, float z)
+{
+    m_scale = glm::vec3(x, y, z);
+}
+
+void Model::rotate(float angle, float x, float y, float z)
+{
+    m_rotation.w += angle;
+    m_rotation.x = x;
+    m_rotation.y = y;
+    m_rotation.z = z;
+}
+
+void Model::scale(float x, float y, float z)
+{
+    m_scale.x += x;
+    m_scale.y += y;
+    m_scale.z += z;
+}
+
+void Model::move(float x, float y, float z)
+{
+    m_position.x += x;
+    m_position.y += y;
+    m_position.z += z;
 }
 
 void Model::clean_up()

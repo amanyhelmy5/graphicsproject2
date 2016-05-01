@@ -129,8 +129,8 @@ void ApplicationManager::_on_window_resize(GLFWwindow* window, int width, int he
 
 void ApplicationManager::update()
 {
-    double current_time = glfwGetTime(); //get currentTime
-    double delta_time = (current_time - m_time)*1000; //subtract the previous recorded time (mTime value)* 1000 to convert from nanoseconds to seconds.
+    float current_time = glfwGetTime(); //get currentTime
+    float delta_time = (current_time - m_time); //subtract the previous recorded time (mTime value)* 1000 to convert from nanoseconds to seconds.
     m_time = current_time; //set the mTime with current (for calculating the next frame)
 
     m_renderer->update(delta_time);

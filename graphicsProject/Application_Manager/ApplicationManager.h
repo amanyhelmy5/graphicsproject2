@@ -32,7 +32,7 @@ class ApplicationManager
     void update();
     static void _on_window_resize(GLFWwindow* window, int width, int height);
 
-    double m_time;
+    float m_time;
 
 public:
     static int WINDOW_SIZE_WIDTH;

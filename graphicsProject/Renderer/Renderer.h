@@ -9,16 +9,11 @@
     #include <gl/glfw3.h>
 #endif
 
-
-#include <glm.hpp>
-#include <gtc/matrix_transform.hpp>
 #include <memory>
-
 
 #include "../Shaders/shader.hpp"
 #include "../Texture/texture.h"
 #include "../Model/Model.h"
-#include "../Model/square.h"
 #include "../EulerCamera/EulerCamera.h"
 #include "../actions.h"
 

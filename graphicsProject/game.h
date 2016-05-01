@@ -18,10 +18,12 @@ class Game
     std::shared_ptr<Square> front_plane;
     std::shared_ptr<Square> back_plane;
 
+    float angle = 0.0f;
+
 public:
     Game(Renderer* renderer);
     void initialize();
-    void update(double delta);
+    void update(float delta);
 };
 
 #endif // GAME_H
