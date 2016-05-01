@@ -19,7 +19,10 @@ HEADERS += \
     InputHandler/inputhandler.h \
     actions.h \
     Model/square.h \
-    game.h
+    game.h \
+    Collision/Bounding_Box.h \
+    Collision/Collidable_Model.h \
+    Collision/Collision_Manager.h
 
 SOURCES += \
     Application_Manager/ApplicationManager.cpp \
@@ -32,5 +35,8 @@ SOURCES += \
     Texture/Texture_Loader/stb_image.c \
     InputHandler/inputhandler.cpp \
     Model/square.cpp \
-    game.cpp
+    game.cpp \
+    Collision/Bounding_Box.cpp \
+    Collision/Collidable_Model.cpp \
+    Collision/Collision_Manager.cpp
 

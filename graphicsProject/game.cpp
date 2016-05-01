@@ -37,3 +37,28 @@ void Game::update(double delta)
 {
 
 }
+
+//********
+
+void Game::set_direction(glm::vec3 direction)
+{
+    m_direction = direction;
+    //m_DirectionAngle = glm::atan(m_Direction.z/m_Direction.x)*1800*PI;
+}
+
+glm::vec3 Game::get_direction()
+{
+    return m_direction;
+}
+
+glm::vec3 Game::get_position()
+{
+    return m_position;
+}
+
+void Game::set_position(glm::vec3 position)
+{
+    m_position = position;
+}
+
+//***********
