@@ -3,7 +3,7 @@
 #include <string>
 #include <cstring>
 
-#include <glm/glm.hpp>
+#include <glm.hpp>
 
 #include "objloader.hpp"
 
