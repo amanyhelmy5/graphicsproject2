@@ -33,7 +33,7 @@ protected:
 public:
 	Model();
     Model(std::string path);
-	Model(std::string path,char* modelpath);
+	Model(std::string path, std::string model_path);
 
 	~Model();
 
@@ -44,6 +44,7 @@ public:
 	std::vector<glm::vec3>	normals_data;
     glm::mat4 model_matrix;
 	char* m_model_path;
+	std::string pathfile;
      void initialize();
      void draw();
      void set_texture(std::string path);
