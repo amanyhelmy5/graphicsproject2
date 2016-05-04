@@ -4,6 +4,7 @@
 #include <memory>
 #include "Renderer/Renderer.h"
 #include "Model/square.h"
+#include "actions.h"
 
 class Game
 {
@@ -23,7 +24,7 @@ class Game
 public:
     Game(Renderer* renderer);
     void initialize();
-    void update(float delta);
+    void update(float delta, Actions p_actions);
 };
 
 #endif // GAME_H

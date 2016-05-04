@@ -24,12 +24,13 @@ void Game::initialize()
 //    front_plane ->m_model_matrix = glm::translate(-500.0f, 0.0f, 0.0f) * glm::rotate(90.0f, 0.0f, 1.0f, 0.0f)  * glm::rotate(180.0f, 0.0f, 0.0f, 1.0f) * glm::scale(500.0f, 500.0f, 500.0f);
 //    back_plane  ->m_model_matrix = glm::translate(0.0f, 0.0f, 500.0f)  * glm::rotate(180.0f, 0.0f, 0.0f, 1.0f) * glm::rotate(180.0f, 0.0f, 1.0f, 0.0f) * glm::scale(500.0f, 500.0f, 500.0f);
 
-    test_square ->set_rotation(0.0f, 1.0f, 0.0f, 0.0f);
-    test_square ->set_scale(1.0f, 1.0f, 1.0f);
-    test_square ->set_translation(0.0f, 0.0f, -10.0f);
+    test_square ->set_rotation(-30.0f, 0.0f, 1.0f, 0.0f);
+    test_square ->set_scale(0.25f, 0.25f, 0.25f);
+    test_square ->set_translation(0.0f, 0.0f, 0.0f);
 
     ground_plane->rotate(90.0f, -1.0f, 0.0f, 0.0f);
-    ground_plane->set_scale(500.0f, 500.0f, 500.0f);
+	ground_plane->rotate(180.0f, 0.0f, 1.0f, 0.0f);
+    //ground_plane->set_scale(500.0f, 500.0f, 500.0f);
     ground_plane->set_translation(0.0f, -500.0f, 0.0f);
 
     top_plane   ->rotate(90.0f, 1.0f, 0.0f, 0.0f);
@@ -41,13 +42,25 @@ void Game::initialize()
     front_plane   ->set_translation(0.0f, 0.0f, -500.0f);
 
     back_plane   ->rotate(180.0f, 1.0f, 0.0f, 0.0f);
+	//back_plane->rotate(180.0f, 0.0f, 1.0f, 0.0f);
     back_plane   ->set_scale(500.0f, 500.0f, 500.0f);
     back_plane   ->set_translation(0.0f, 0.0f, 500.0f);
 
     //right_plane   ->set_rotation(45.0f, 0.0f, 1.0f, 0.0f);
     //right_plane   ->rotate(180.0f, 0.0f, 1.0f, 0.0f);
-    right_plane   ->set_scale(500.0f, 500.0f, 500.0f);
-    right_plane   ->set_translation(-500.0f, 0.0f, 0.0f);
+	
+
+	right_plane->rotate(180.0f, 0.0f, 0.0f, 1.0f);
+	right_plane->rotate(90.0f, 0.0f, 1.0f, 0.0f);
+	right_plane->set_translation(-500.0f, 0.0f, 0.0f);
+	right_plane->scale(500.0f, 500.0f, 500.0f);
+
+	left_plane->scale(500.0f, 500.0f, 500.0f);
+	left_plane->rotate(180.0f, 0.0f, 0.0f, 1.0f);
+	left_plane->rotate(90.0f, 0.0f, -1.0f, 0.0f);
+	left_plane->set_translation(500.0f, 0.0f, 0.0f);
+	
+	
 
     m_renderer->add_model(test_square );
     m_renderer->add_model(ground_plane);
@@ -58,10 +71,11 @@ void Game::initialize()
     m_renderer->add_model(back_plane  );
 }
 
-void Game::update(float delta)
+void Game::update(float delta, Actions p_actions)
 {
     //test_square->rotate(delta*0.1f, 0.0f, 0.0f, 1.0f);
-    test_square->set_scale(delta*angle, delta*angle, delta*angle);
+	if (p_actions.forwards)
+		test_square->move(0.0f, 0.2, 0.0f);
     //right_plane->rotate(angle*delta, 0.0f, 1.0f, 0.0f);
     angle += 1.1f;
 }

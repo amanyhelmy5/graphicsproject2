@@ -134,6 +134,6 @@ void ApplicationManager::update()
     m_time = current_time; //set the mTime with current (for calculating the next frame)
 
     m_renderer->update(delta_time);
-    m_game->update(delta_time);
+    m_game->update(delta_time, m_actions);
 
 }

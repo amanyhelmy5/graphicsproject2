@@ -1,4 +1,6 @@
 #include "inputhandler.h"
+#include"graphicsProject\game.h"
+#include"graphicsProject\game.cpp"
 
 InputHandler* InputHandler::m_pInstance = NULL;
 

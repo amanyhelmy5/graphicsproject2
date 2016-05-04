@@ -30,6 +30,9 @@ class InputHandler
     static void mouse_moved(GLFWwindow* window, double xpos, double ypos);
 
     InputHandler(Renderer* renderer, GLFWwindow* window);
+	int counter1 = 0;
+	int counter2 = 0;
+	int counter3 = 0;
 
 public:
     static InputHandler* instance(Renderer* m_renderer, GLFWwindow* m_window);
@@ -39,6 +42,7 @@ public:
     bool is_key_pressed(int key);
     Actions handle_keyboard_input();
     void handle_mouse_input();
+	void HandleKeyboardInput(int key);
 };
 
 #endif // INPUTHANDLER_H
