@@ -17,7 +17,7 @@ class Game
     std::shared_ptr<Square> left_plane;
     std::shared_ptr<Square> front_plane;
     std::shared_ptr<Square> back_plane;
-
+	std::shared_ptr<Model> plane;
 public:
     Game(Renderer* renderer);
     void initialize();

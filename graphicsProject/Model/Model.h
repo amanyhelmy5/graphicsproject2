@@ -4,16 +4,17 @@
 #include <glm.hpp>
 #include <vector>
 #include <memory>
-#include <string>
+#include <iostream>
 
 #ifdef __linux__
     #include <GL/glew.h>
 #elif _WIN32
     #include <gl/glew.h>
 #endif
+#include "../ShaderProgram/ShaderProgram.h"
 
 #include "../Texture/texture.h"
-
+#include "../objloader.hpp"
 class Model
 {
 	//VAO
@@ -26,19 +27,23 @@ class Model
     GLuint m_UV_data_buffer_ID;
 protected:
     std::unique_ptr<Texture> m_texture;
+
     /*std::vector<glm::vec3> m_normal_data;
     std::vector<glm::vec2> mUV_data;*/
 public:
 	Model();
     Model(std::string path);
+	Model(std::string path,char* modelpath);
+
 	~Model();
 
     std::vector<glm::vec3> vertex_data;
     std::vector<glm::vec3> color_data;
     std::vector<unsigned short> indices_data;
     std::vector<glm::vec2> UV_data;
+	std::vector<glm::vec3>	normals_data;
     glm::mat4 model_matrix;
-
+	char* m_model_path;
      void initialize();
      void draw();
      void set_texture(std::string path);

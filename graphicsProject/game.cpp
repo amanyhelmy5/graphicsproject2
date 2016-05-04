@@ -15,6 +15,7 @@ void Game::initialize()
     left_plane   =   std::shared_ptr<Square> (new Square("left.png"));
     front_plane  =   std::shared_ptr<Square> (new Square("front.png"));
     back_plane   =   std::shared_ptr<Square> (new Square("back.png"));
+	plane		 =   std::shared_ptr<Model>  (new Model("data/plane/plane.png", "data/plane/plane.obj"));
 
     test_square ->model_matrix = glm::scale(1.0f, 1.0f, 1.0f) * glm::translate(0.0f, 0.0f, 0.0f) * glm::rotate(0.0f, glm::vec3(1.0f, 0.0f, 0.0f));
     ground_plane->model_matrix = glm::translate(0.0f, -500.0f, 0.0f) * glm::rotate(180.0f, 0.0f, 1.0f, 0.0f) * glm::rotate(90.0f, -1.0f, 0.0f, 0.0f) * glm::scale(500.0f, 500.0f, 500.0f);
@@ -23,6 +24,9 @@ void Game::initialize()
     left_plane  ->model_matrix = glm::translate(500.0f, 0.0f, 0.0f)  * glm::rotate(90.0f, 0.0f, -1.0f, 0.0f) * glm::rotate(180.0f, 0.0f, 0.0f, 1.0f) * glm::scale(500.0f, 500.0f, 500.0f);
     front_plane ->model_matrix = glm::translate(-500.0f, 0.0f, 0.0f) * glm::rotate(90.0f, 0.0f, 1.0f, 0.0f)  * glm::rotate(180.0f, 0.0f, 0.0f, 1.0f) * glm::scale(500.0f, 500.0f, 500.0f);
     back_plane  ->model_matrix = glm::translate(0.0f, 0.0f, 500.0f)  * glm::rotate(180.0f, 0.0f, 0.0f, 1.0f) * glm::rotate(180.0f, 0.0f, 1.0f, 0.0f) * glm::scale(500.0f, 500.0f, 500.0f);
+	back_plane  ->model_matrix = glm::translate(0.0f, 0.0f, 500.0f)  * glm::rotate(180.0f, 0.0f, 0.0f, 1.0f) * glm::rotate(180.0f, 0.0f, 1.0f, 0.0f) * glm::scale(500.0f, 500.0f, 500.0f);
+	plane		->model_matrix = glm::scale(1.0f, 1.0f, 1.0f) * glm::translate(0.0f, 0.0f, 0.0f) * glm::rotate(0.0f, glm::vec3(1.0f, 0.0f, 0.0f));
+
 
     m_renderer->add_model(test_square );
     m_renderer->add_model(ground_plane);
@@ -31,6 +35,8 @@ void Game::initialize()
     m_renderer->add_model(left_plane  );
     m_renderer->add_model(front_plane );
     m_renderer->add_model(back_plane  );
+	m_renderer->add_model(plane);
+
 }
 
 void Game::update(double delta)
