@@ -63,8 +63,8 @@ bool ApplicationManager::initalize_application(int window_size_width, int window
     this->initialize_components(); // To be able to draw
 
     m_input_handler = std::unique_ptr<InputHandler>( InputHandler::instance(this->m_renderer.get(), this->m_window) );
-
-    m_game = std::unique_ptr<Game>(new Game(m_renderer.get()));
+	m_collision_manager = std::unique_ptr<Collision_Manager>(new Collision_Manager());
+    m_game = std::unique_ptr<Game>(new Game(m_renderer.get(), m_collision_manager.get()));
     m_game->initialize();
 	return true;
 }

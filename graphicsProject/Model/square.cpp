@@ -1,5 +1,8 @@
 #include "square.h"
+Square::Square()
+{
 
+}
 Square::Square(int color)
 {
     vertex_data.push_back(glm::vec3(-1.0f, 1.0f, 0.0f));

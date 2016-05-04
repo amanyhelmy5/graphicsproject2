@@ -57,6 +57,9 @@
     <ClCompile Include="graphicsProject\Collision\Collision_Manager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="graphicsProject\Model\my_hero.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="graphicsProject\MultiColor.fragmentshader" />
@@ -103,6 +106,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="graphicsProject\Collision\Collision_Manager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="graphicsProject\Model\my_hero.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

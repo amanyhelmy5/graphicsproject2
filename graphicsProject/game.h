@@ -3,14 +3,16 @@
 
 #include <memory>
 #include "Renderer/Renderer.h"
-#include "Model/square.h"
+#include "Model/my_hero.h"
+#include"Collision/Collision_Manager.h"
+class ApplicationManager;
 
 class Game
 {
-    Renderer* m_renderer;
+	Renderer* m_renderer;
+	Collision_Manager * m_collisionmanager;
 
-    std::shared_ptr<Square> test_square;
-
+	std::shared_ptr<my_hero> test_square;
     std::shared_ptr<Square> ground_plane;
     std::shared_ptr<Square> top_plane;
     std::shared_ptr<Square> right_plane;
@@ -18,18 +20,15 @@ class Game
     std::shared_ptr<Square> front_plane;
     std::shared_ptr<Square> back_plane;
 
-    glm::vec3 m_position;
-    glm::vec3 m_direction;
+	float x = 0.0f;
+    
 
 public:
-    Game(Renderer* renderer);
+	Game(Renderer* renderer, Collision_Manager *collision_manager);
     void initialize();
     void update(double delta);
 
-    void set_direction(glm::vec3 direction);
-    glm::vec3 get_direction();
-    glm::vec3 get_position();
-    void set_position(glm::vec3 position);
+   
 };
 
 #endif // GAME_H

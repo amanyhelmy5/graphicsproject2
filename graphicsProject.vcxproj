@@ -80,6 +80,7 @@
     <ClCompile Include="graphicsProject\InputHandler\inputhandler.cpp" />
     <ClCompile Include="graphicsProject\main.cpp" />
     <ClCompile Include="graphicsProject\Model\Model.cpp" />
+    <ClCompile Include="graphicsProject\Model\my_hero.cpp" />
     <ClCompile Include="graphicsProject\Model\square.cpp" />
     <ClCompile Include="graphicsProject\Renderer\Renderer.cpp" />
     <ClCompile Include="graphicsProject\Shaders\shader.cpp" />
@@ -100,6 +101,7 @@
     <ClInclude Include="graphicsProject\game.h" />
     <ClInclude Include="graphicsProject\InputHandler\inputhandler.h" />
     <ClInclude Include="graphicsProject\Model\Model.h" />
+    <ClInclude Include="graphicsProject\Model\my_hero.h" />
     <ClInclude Include="graphicsProject\Model\square.h" />
     <ClInclude Include="graphicsProject\Renderer\Renderer.h" />
     <ClInclude Include="graphicsProject\Shaders\shader.hpp" />

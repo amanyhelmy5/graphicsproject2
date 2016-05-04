@@ -27,6 +27,8 @@ void Model::bind_texture()
 
 void Model::initialize()
 {
+	
+
 	glGenVertexArrays(1, &m_vertex_array_object_ID);
 	glBindVertexArray(m_vertex_array_object_ID);
 
@@ -79,6 +81,33 @@ void Model::draw()
 	}
 }
 
+void Model::set_direction(glm::vec3 direction)
+{
+	m_direction = direction;
+	//m_DirectionAngle = glm::atan(m_Direction.z/m_Direction.x)*1800*PI;
+}
+
+glm::vec3 Model::get_direction()
+{
+	return m_direction;
+}
+
+glm::vec3 Model::get_position()
+{
+	return m_position;
+}
+
+void Model::set_position(glm::vec3 position)
+{
+	m_position = position;
+}
+
+void Model::move()
+{
+
+}
+
+
 void Model::clean_up()
 {
 	glDeleteBuffers(1, &m_vertex_data_buffer_ID);
@@ -86,4 +115,9 @@ void Model::clean_up()
 	glDeleteBuffers(1, &m_indices_data_buffer_ID);
 	glDeleteBuffers(1, &m_UV_data_buffer_ID);
 	glDeleteVertexArrays(1, &m_vertex_array_object_ID); 
+}
+
+std::vector<glm::vec3>Model::get_vertices()
+{
+	return vertex_data;
 }

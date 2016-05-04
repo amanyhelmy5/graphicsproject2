@@ -6,6 +6,7 @@
 #include <memory>
 #include <string>
 
+
 #ifdef __linux__
     #include <GL/glew.h>
 #elif _WIN32
@@ -26,6 +27,8 @@ class Model
     GLuint m_UV_data_buffer_ID;
 protected:
     std::unique_ptr<Texture> m_texture;
+	glm::vec3 m_position;
+	glm::vec3 m_direction;
     /*std::vector<glm::vec3> m_normal_data;
     std::vector<glm::vec2> mUV_data;*/
 public:
@@ -37,13 +40,20 @@ public:
     std::vector<glm::vec3> color_data;
     std::vector<unsigned short> indices_data;
     std::vector<glm::vec2> UV_data;
-    glm::mat4 model_matrix;
+	glm::mat4 model_matrix;
 
      void initialize();
      void draw();
      void set_texture(std::string path);
      void bind_texture();
      void clean_up();
+
+	 void set_direction(glm::vec3 direction);
+	 glm::vec3 get_direction();
+	 glm::vec3 get_position();
+	 void set_position(glm::vec3 position);
+	 void move();
+	 std::vector<glm::vec3> get_vertices();
 };
 #endif // Model_h__
 

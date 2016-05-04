@@ -14,6 +14,7 @@
 #include "../InputHandler/inputhandler.h"
 #include "../actions.h"
 #include "../game.h"
+#include "../Collision/Collision_Manager.h"
 
 class InputHandler;
 
@@ -34,6 +35,8 @@ class ApplicationManager
 
     double m_time;
 
+	std::unique_ptr<Collision_Manager> m_collision_manager;
+
 public:
     static int WINDOW_SIZE_WIDTH;
     static int WINDOW_SIZE_HEIGHT;
@@ -43,6 +46,9 @@ public:
     bool initalize_application(int window_size_width, int window_size_height);
     void start_main_loop();
     void close_application();
+	
+
+	void my_collision();
 
 	~ApplicationManager(void);
 };

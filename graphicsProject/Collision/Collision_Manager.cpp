@@ -52,3 +52,4 @@ void Collision_Manager::RemoveCollidableModel(Collidable_Model* model)
 		}
 	}
 }
+
