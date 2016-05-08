@@ -17,7 +17,7 @@
 #elif _WIN32
     #include <gl/glew.h>
 #endif
-#include "../ShaderProgram/ShaderProgram.h"
+//#include "../ShaderProgram/ShaderProgram.h"
 
 #include "../Texture/texture.h"
 #include "../objloader.hpp"
@@ -37,8 +37,8 @@ protected:
 
 	glm::vec3 m_position;
 	glm::vec3 m_direction;
-
-
+    glm::vec3 m_scale;
+    glm::vec4 m_rotation;
     /*std::vector<glm::vec3> m_normal_data;
     std::vector<glm::vec2> mUV_data;*/
 
@@ -47,10 +47,6 @@ protected:
     glm::mat4 m_translation_matrix;
     glm::mat4 m_rotation_matrix;
     glm::mat4 m_scale_matrix;
-
-
-    glm::vec3 m_scale;
-    glm::vec4 m_rotation;
 public:
 	Model();
     Model(std::string path);
@@ -63,9 +59,6 @@ public:
     std::vector<unsigned short> indices_data;
     std::vector<glm::vec2> UV_data;
 
-	glm::mat4 model_matrix;
-
-
 	std::vector<glm::vec3>	normals_data;
 	char* m_model_path;
 	std::string pathfile;
@@ -76,7 +69,6 @@ public:
      void set_texture(std::string path);
      void bind_texture();
      void clean_up();
-
 
 	 void set_direction(glm::vec3 direction);
 	 glm::vec3 get_direction();

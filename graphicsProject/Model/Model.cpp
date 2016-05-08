@@ -21,7 +21,9 @@ Model::Model(std::string path)
     set_scale(1.0f, 1.0f, 1.0f);
     set_texture(path);
 	pathfile = "";
+    initialize();
 }
+
 Model::Model(std::string model_path, std::string path = "")
 {
     set_translation(0.0f, 0.0f, 0.0f);
@@ -48,10 +50,6 @@ void Model::bind_texture()
 
 void Model::initialize()
 {
-
-	
-
-
 	if (pathfile.size() > 0)
 	{
 		(loadOBJ(pathfile.c_str(), vertex_data, UV_data, normals_data));
@@ -92,18 +90,6 @@ void Model::initialize()
 		//note that the number of elements = 2 because UV coords are of type vec2
 		glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 0, (void*)0);
 	}
-	//now all the state is save in the Vertex Array Object, we only need to bind it in the drawing code (each frame).
-	/*std::vector<glm::vec3> houseVertices;
-	std::vector<glm::vec3>
-	houseNormals;  std::vector<glm::vec2> houseUVs; */
-	
-	//std::cerr << "Couldn't load model! " << m_model_path << std::endl;
-	// myHouse = std::unique_ptr<Model>(new Model()); 
-	//myHouse->VertexData = houseVertices; 
-	//myHouse->UVData = houseUVs; 
-	//myHouse->NormalsData = houseNormals;
-	//houseTexture = std::unique_ptr<Texture>(new Texture("some models/house/house.jpg", 1));
-
 }
 
 
