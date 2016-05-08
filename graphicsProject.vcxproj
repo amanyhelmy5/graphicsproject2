@@ -11,8 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{47F7CF3F-8293-4688-922C-2C66BAC2BB49}</ProjectGuid>
-    <RootNamespace>graphicsProject</RootNamespace>
+    <ProjectGuid>{9D273535-816D-4F73-9E24-DD5A6B424022}</ProjectGuid>
+    <RootNamespace>graphicsproject</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -40,15 +40,14 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>$(SolutionDir)\glm;$(SolutionDir)\Needed libraries\GLEW\include;$(SolutionDir)\Needed libraries\GLFW\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)\Needed libraries\GLEW\lib;$(SolutionDir)\Needed libraries\GLFW\lib;$(LibraryPath)</LibraryPath>
     <LinkIncremental>false</LinkIncremental>
+    <LibraryPath>$(SolutionDir)\Needed libraries\GLEW\lib;$(SolutionDir)\Needed libraries\GLFW\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <SDLCheck>
-      </SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -71,10 +70,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="graphicsProject\actions.h" />
+    <ClInclude Include="graphicsProject\Application_Manager\ApplicationManager.h" />
+    <ClInclude Include="graphicsProject\EulerCamera\EulerCamera.h" />
+    <ClInclude Include="graphicsProject\game.h" />
+    <ClInclude Include="graphicsProject\InputHandler\inputhandler.h" />
+    <ClInclude Include="graphicsProject\Level1.h" />
+    <ClInclude Include="graphicsProject\Level2.h" />
+    <ClInclude Include="graphicsProject\Model\Model.h" />
+    <ClInclude Include="graphicsProject\Model\square.h" />
+    <ClInclude Include="graphicsProject\objloader.hpp" />
+    <ClInclude Include="graphicsProject\Renderer\Renderer.h" />
+    <ClInclude Include="graphicsProject\ShaderProgram\ShaderProgram.h" />
+    <ClInclude Include="graphicsProject\Shaders\shader.hpp" />
+    <ClInclude Include="graphicsProject\Texture\texture.h" />
+    <ClInclude Include="graphicsProject\Texture\Texture_Loader\stb_image.h" />
+  </ItemGroup>
+  <ItemGroup>
     <ClCompile Include="graphicsProject\Application_Manager\ApplicationManager.cpp" />
     <ClCompile Include="graphicsProject\EulerCamera\EulerCamera.cpp" />
     <ClCompile Include="graphicsProject\game.cpp" />
     <ClCompile Include="graphicsProject\InputHandler\inputhandler.cpp" />
+    <ClCompile Include="graphicsProject\Level1.cpp" />
+    <ClCompile Include="graphicsProject\Level2.cpp" />
     <ClCompile Include="graphicsProject\main.cpp" />
     <ClCompile Include="graphicsProject\Model\Model.cpp" />
     <ClCompile Include="graphicsProject\Model\square.cpp" />
@@ -86,27 +104,9 @@
     <ClCompile Include="graphicsProject\Texture\Texture_Loader\stb_image.c" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="graphicsProject\graphicsProject.pro" />
     <None Include="graphicsProject\MultiColor.fragmentshader" />
     <None Include="graphicsProject\SimpleTransformWithColor.vertexshader" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="graphicsProject\actions.h" />
-    <ClInclude Include="graphicsProject\Application_Manager\ApplicationManager.h" />
-    <ClInclude Include="graphicsProject\EulerCamera\EulerCamera.h" />
-    <ClInclude Include="graphicsProject\game.h" />
-    <ClInclude Include="graphicsProject\InputHandler\inputhandler.h" />
-    <ClInclude Include="graphicsProject\Model\Model.h" />
-    <ClInclude Include="graphicsProject\Model\square.h" />
-    <ClInclude Include="graphicsProject\objloader.hpp" />
-    <ClInclude Include="graphicsProject\Renderer\Renderer.h" />
-    <ClInclude Include="graphicsProject\ShaderProgram\ShaderProgram.h" />
-    <ClInclude Include="graphicsProject\Shaders\shader.hpp" />
-    <ClInclude Include="graphicsProject\Texture\texture.h" />
-    <ClInclude Include="graphicsProject\Texture\Texture_Loader\stb_image.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="graphicsProject\bricks.jpg" />
-    <Image Include="graphicsProject\uvtemplate.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

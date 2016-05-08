@@ -97,6 +97,8 @@ void InputHandler::handle_key_release()
             m_actions.jump = false;
         if (InputHandler::KEY_PRESSED == GLFW_KEY_LEFT_CONTROL)
             m_actions.fall = false;
+		if (InputHandler::KEY_PRESSED == GLFW_KEY_KP_1 )
+			m_actions.fall = false;
         InputHandler::KEY_PRESSED = -1;
     }
     //mRenderer->HandleKeyboardInput(actions);

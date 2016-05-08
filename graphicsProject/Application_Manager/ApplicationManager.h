@@ -14,18 +14,20 @@
 #include "../InputHandler/inputhandler.h"
 #include "../actions.h"
 #include "../game.h"
-
+#include "../Level1.h"
+#include "../Level2.h"
 class InputHandler;
 
 class ApplicationManager
 {
+	int current_level = 0;
     int m_openGL_major_version;
     int m_openGL_minor_version;
     Actions m_actions;
 
     GLFWwindow* m_window; //Why didn't we use smart pointers here? google it! ;)
     std::unique_ptr<Renderer> m_renderer;
-    std::unique_ptr<Game> m_game;
+	std::vector < std::unique_ptr<Game> > m_levels;
     std::unique_ptr<InputHandler> m_input_handler;
 
     void initialize_components();

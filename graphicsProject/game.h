@@ -12,8 +12,8 @@ class Game
     Renderer* m_renderer;
 
     std::shared_ptr<Square> test_square;
-	std::shared_ptr<Model> plane;
-	std::shared_ptr<Model> body;
+	//std::shared_ptr<Model> plane;
+	//std::shared_ptr<Model> body;
 
     float angle = 0.0f;
 
@@ -21,7 +21,7 @@ class Game
     std::shared_ptr<Model> skybox;
 public:
     Game(Renderer* renderer);
-    void initialize();
+	void initialize();
     void update(float delta, Actions p_actions);
 };
 

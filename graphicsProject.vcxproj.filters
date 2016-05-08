@@ -15,61 +15,19 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="graphicsProject\main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="graphicsProject\Shaders\shader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="graphicsProject\EulerCamera\EulerCamera.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="graphicsProject\Model\Model.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="graphicsProject\Renderer\Renderer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="graphicsProject\Texture\texture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="graphicsProject\Texture\Texture_Loader\stb_image.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="graphicsProject\Application_Manager\ApplicationManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="graphicsProject\InputHandler\inputhandler.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="graphicsProject\Model\square.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="graphicsProject\game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="graphicsProject\ShaderProgram\ShaderProgram.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="graphicsProject\objloader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="graphicsProject\MultiColor.fragmentshader" />
-    <None Include="graphicsProject\SimpleTransformWithColor.vertexshader" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="graphicsProject\Shaders\shader.hpp">
+    <ClInclude Include="graphicsProject\actions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="graphicsProject\EulerCamera\EulerCamera.h">
+    <ClInclude Include="graphicsProject\game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="graphicsProject\Model\Model.h">
+    <ClInclude Include="graphicsProject\Level1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="graphicsProject\Renderer\Renderer.h">
+    <ClInclude Include="graphicsProject\Level2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="graphicsProject\objloader.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="graphicsProject\Texture\texture.h">
@@ -78,34 +36,81 @@
     <ClInclude Include="graphicsProject\Texture\Texture_Loader\stb_image.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="graphicsProject\Application_Manager\ApplicationManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="graphicsProject\InputHandler\inputhandler.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="graphicsProject\actions.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="graphicsProject\Model\square.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="graphicsProject\game.h">
+    <ClInclude Include="graphicsProject\Shaders\shader.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="graphicsProject\ShaderProgram\ShaderProgram.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="graphicsProject\objloader.hpp">
+    <ClInclude Include="graphicsProject\Renderer\Renderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="graphicsProject\Model\Model.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="graphicsProject\Model\square.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="graphicsProject\InputHandler\inputhandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="graphicsProject\EulerCamera\EulerCamera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="graphicsProject\Application_Manager\ApplicationManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="graphicsProject\bricks.jpg">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="graphicsProject\uvtemplate.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
+    <ClCompile Include="graphicsProject\game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="graphicsProject\Level1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="graphicsProject\Level2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="graphicsProject\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="graphicsProject\objloader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="graphicsProject\Texture\texture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="graphicsProject\Texture\Texture_Loader\stb_image.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="graphicsProject\Shaders\shader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="graphicsProject\ShaderProgram\ShaderProgram.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="graphicsProject\Renderer\Renderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="graphicsProject\Model\Model.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="graphicsProject\Model\square.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="graphicsProject\InputHandler\inputhandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="graphicsProject\EulerCamera\EulerCamera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="graphicsProject\Application_Manager\ApplicationManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="graphicsProject\graphicsProject.pro" />
+    <None Include="graphicsProject\MultiColor.fragmentshader" />
+    <None Include="graphicsProject\SimpleTransformWithColor.vertexshader" />
   </ItemGroup>
 </Project>

@@ -63,10 +63,13 @@ bool ApplicationManager::initalize_application(int window_size_width, int window
     this->initialize_components(); // To be able to draw
 
     m_input_handler = std::unique_ptr<InputHandler>( InputHandler::instance(this->m_renderer.get(), this->m_window) );
+	m_levels.push_back(  std::unique_ptr<Level1>(new Level1(m_renderer.get())));
+	m_levels.push_back(std::unique_ptr<Level2>(new Level2(m_renderer.get())));
 
-    m_game = std::unique_ptr<Game>(new Game(m_renderer.get()));
-    m_game->initialize();
+
+	m_levels[current_level]->initialize();
 	return true;
+
 }
 
 void ApplicationManager::initialize_components()
@@ -134,6 +137,6 @@ void ApplicationManager::update()
     m_time = current_time; //set the mTime with current (for calculating the next frame)
 
     m_renderer->update(delta_time);
-    m_game->update(delta_time, m_actions);
+    m_levels[current_level]->update(delta_time, m_actions);
 
 }
