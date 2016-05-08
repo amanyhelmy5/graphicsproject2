@@ -9,7 +9,7 @@ Level1::~Level1()
 {
 }
 
-void Game::initialize()
+void Level1::initialize()
 {
 	//plane		 =   std::shared_ptr<Model>  (new Model("poss/grass.png", "poss/grass.obj"));
 	//body = std::shared_ptr<Model>(new Model("spider/torch2.png", "spider/torch2."));
@@ -26,7 +26,7 @@ void Game::initialize()
 
 }
 
- void Game::update(float delta, Actions p_actions)
+ void Level1::update(float delta, Actions p_actions)
 {
 	if (p_actions.forwards)
 	{

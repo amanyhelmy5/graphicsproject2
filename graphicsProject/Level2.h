@@ -9,6 +9,8 @@ public:
 	Level2(Renderer* renderer);
 	~Level2();
 	
+    virtual void initialize();
+    virtual void update(float delta, Actions p_actions);
 private:
 
 };

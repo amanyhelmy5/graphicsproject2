@@ -21,7 +21,9 @@ HEADERS += \
     Model/square.h \
     game.h \
     ShaderProgram/ShaderProgram.h \
-    objloader.hpp
+    objloader.hpp \
+    Level1.h \
+    Level2.h
 
 SOURCES += \
     Application_Manager/ApplicationManager.cpp \
@@ -36,5 +38,7 @@ SOURCES += \
     Model/square.cpp \
     game.cpp \
     ShaderProgram/ShaderProgram.cpp \
-    objloader.cpp
+    objloader.cpp \
+    Level1.cpp \
+    Level2.cpp
 

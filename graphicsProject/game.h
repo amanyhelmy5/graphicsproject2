@@ -9,6 +9,7 @@
 
 class Game
 {
+protected:
     Renderer* m_renderer;
 
     std::shared_ptr<Square> test_square;
@@ -21,7 +22,7 @@ class Game
     std::shared_ptr<Model> skybox;
 public:
     Game(Renderer* renderer);
-	void initialize();
+    virtual void initialize();
     void update(float delta, Actions p_actions);
 };
 
