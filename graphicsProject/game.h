@@ -6,6 +6,8 @@
 #include "Model/my_hero.h"
 #include"Collision/Collision_Manager.h"
 class ApplicationManager;
+#include "Model/square.h"
+#include "actions.h"
 
 class Game
 {
@@ -20,15 +22,24 @@ class Game
     std::shared_ptr<Square> front_plane;
     std::shared_ptr<Square> back_plane;
 
+
 	float x = 0.0f;
     
+
+    float angle = 0.0f;
+
+    std::shared_ptr<Model> spider;
+    std::shared_ptr<Model> skybox;
 
 public:
 	Game(Renderer* renderer, Collision_Manager *collision_manager);
     void initialize();
+
     void update(double delta);
 
    
+    void update(float delta, Actions p_actions);
+
 };
 
 #endif // GAME_H

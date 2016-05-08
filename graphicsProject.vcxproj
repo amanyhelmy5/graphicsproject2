@@ -82,7 +82,9 @@
     <ClCompile Include="graphicsProject\Model\Model.cpp" />
     <ClCompile Include="graphicsProject\Model\my_hero.cpp" />
     <ClCompile Include="graphicsProject\Model\square.cpp" />
+    <ClCompile Include="graphicsProject\objloader.cpp" />
     <ClCompile Include="graphicsProject\Renderer\Renderer.cpp" />
+    <ClCompile Include="graphicsProject\ShaderProgram\ShaderProgram.cpp" />
     <ClCompile Include="graphicsProject\Shaders\shader.cpp" />
     <ClCompile Include="graphicsProject\Texture\texture.cpp" />
     <ClCompile Include="graphicsProject\Texture\Texture_Loader\stb_image.c" />
@@ -103,7 +105,9 @@
     <ClInclude Include="graphicsProject\Model\Model.h" />
     <ClInclude Include="graphicsProject\Model\my_hero.h" />
     <ClInclude Include="graphicsProject\Model\square.h" />
+    <ClInclude Include="graphicsProject\objloader.hpp" />
     <ClInclude Include="graphicsProject\Renderer\Renderer.h" />
+    <ClInclude Include="graphicsProject\ShaderProgram\ShaderProgram.h" />
     <ClInclude Include="graphicsProject\Shaders\shader.hpp" />
     <ClInclude Include="graphicsProject\Texture\texture.h" />
     <ClInclude Include="graphicsProject\Texture\Texture_Loader\stb_image.h" />

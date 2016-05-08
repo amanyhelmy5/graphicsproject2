@@ -20,9 +20,14 @@ HEADERS += \
     actions.h \
     Model/square.h \
     game.h \
+<<<<<<< HEAD
     Collision/Bounding_Box.h \
     Collision/Collidable_Model.h \
     Collision/Collision_Manager.h
+=======
+    ShaderProgram/ShaderProgram.h \
+    objloader.hpp
+>>>>>>> master
 
 SOURCES += \
     Application_Manager/ApplicationManager.cpp \
@@ -36,7 +41,12 @@ SOURCES += \
     InputHandler/inputhandler.cpp \
     Model/square.cpp \
     game.cpp \
+<<<<<<< HEAD
     Collision/Bounding_Box.cpp \
     Collision/Collidable_Model.cpp \
     Collision/Collision_Manager.cpp
+=======
+    ShaderProgram/ShaderProgram.cpp \
+    objloader.cpp
+>>>>>>> master
 
