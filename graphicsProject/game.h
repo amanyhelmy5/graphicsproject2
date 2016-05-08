@@ -4,7 +4,6 @@
 #include <memory>
 #include "Renderer/Renderer.h"
 #include "Model/square.h"
-
 class Game
 {
     Renderer* m_renderer;
@@ -18,6 +17,8 @@ class Game
     std::shared_ptr<Square> front_plane;
     std::shared_ptr<Square> back_plane;
 	std::shared_ptr<Model> plane;
+	std::shared_ptr<Model> body;
+
 public:
     Game(Renderer* renderer);
     void initialize();
