@@ -92,8 +92,6 @@ void Model::initialize()
 	}
 }
 
-
-
 void Model::draw()
 {
 	glBindVertexArray(m_vertex_array_object_ID);

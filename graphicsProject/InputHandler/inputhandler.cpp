@@ -6,6 +6,9 @@ int InputHandler::KEY_PRESSED = -1;
 int InputHandler::KEY_STATE = -1;
 double InputHandler::m_X_mouse_position = -1.0;
 double InputHandler::m_Y_mouse_position = -1.0;
+int counter1 = 0;
+int counter2 = 0;
+int counter3 = 0;
 
 // singleton
 InputHandler* InputHandler::instance(Renderer *Renderer, GLFWwindow *Window)

@@ -5,7 +5,7 @@ Square::Square()
 }
 Square::Square(int color)
 {
-    vertex_data.push_back(glm::vec3(-1.0f, 1.0f, 0.0f));
+    /*vertex_data.push_back(glm::vec3(-1.0f, 1.0f, 0.0f));
     vertex_data.push_back(glm::vec3(1.0f, 1.0f, 0.0f));
     vertex_data.push_back(glm::vec3(-1.0f, -1.0f, 0.0f));
     vertex_data.push_back(glm::vec3(1.0f, -1.0f, 0.0f));
@@ -31,13 +31,13 @@ Square::Square(int color)
     color_data.push_back(m_color);
     color_data.push_back(m_color);
 
-    initialize();
+    initialize();*/
 }
 
 Square::Square(std::string path)
 {
     //drawing a square.
-
+/*
     vertex_data.push_back(glm::vec3(-1.0f, -1.0f, 0.0f));
     vertex_data.push_back(glm::vec3(1.0f, -1.0f, 0.0f));
     vertex_data.push_back(glm::vec3( 1.0f,  1.0f, 0.0f));
@@ -62,5 +62,5 @@ Square::Square(std::string path)
     indices_data.push_back(3);
 
     set_texture(path);
-    initialize();
+    initialize();*/
 }

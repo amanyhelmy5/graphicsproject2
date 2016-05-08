@@ -137,5 +137,6 @@ void ApplicationManager::update()
 
 	m_renderer->update(delta_time);
 	m_game->update(delta_time, m_actions);
+	m_collision_manager->UpdateCollisions();
 
 }

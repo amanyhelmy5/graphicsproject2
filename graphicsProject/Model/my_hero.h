@@ -11,7 +11,8 @@ public:
 	 my_hero(std::string model_path, std::string path);
 	~my_hero();
 	void initialize();
-	std::vector<glm::vec3> vertex_data;
+	virtual std::vector<glm::vec3> get_vertex_data(){ return vertex_data; }
+	Bounding_Box bounding_box;
 private:
 
 };
