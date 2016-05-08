@@ -2,7 +2,7 @@
 
 #include "../Collision/Collidable_Model.h"
 
-class  my_hero : Model, Collidable_Model
+class  my_hero :public Model, Collidable_Model
 {
 public:
 	 my_hero();
