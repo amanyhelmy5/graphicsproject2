@@ -10,18 +10,23 @@ Model::Model(void)
 {
     set_translation(0.0f, 0.0f, 0.0f);
     set_rotation(0.0f, 1.0f, 0.0f, 0.0f);
-    set_rotation(0.0f, 0.0f, 1.0f, 0.0f);
-    set_rotation(0.0f, 0.0f, 0.0f, 1.0f);
     set_scale(1.0f, 1.0f, 1.0f);
 }
 
 Model::Model(std::string path)
 {
+    set_translation(0.0f, 0.0f, 0.0f);
+    set_rotation(0.0f, 1.0f, 0.0f, 0.0f);
+
+    set_scale(1.0f, 1.0f, 1.0f);
     set_texture(path);
 	pathfile = "";
 }
 Model::Model(std::string path,std::string model_path)
 {
+    set_translation(0.0f, 0.0f, 0.0f);
+    set_rotation(0.0f, 1.0f, 0.0f, 0.0f);
+    set_scale(1.0f, 1.0f, 1.0f);
 	set_texture(path);
 	pathfile = model_path;
 	initialize();
@@ -114,7 +119,7 @@ void Model::draw()
     m_scale_matrix = glm::scale(m_scale.x, m_scale.y, m_scale.z);
     m_rotation_matrix = glm::rotate(m_rotation.w, m_rotation.x, m_rotation.y, m_rotation.z);
     m_translation_matrix = glm::translate(m_position.x, m_position.y, m_position.z);
-	m_model_matrix = m_translation_matrix  * m_rotation_matrix* m_scale_matrix;
+    m_model_matrix = m_translation_matrix  * m_rotation_matrix* m_scale_matrix;
 }
 
 void Model::set_translation(float x, float y, float z)

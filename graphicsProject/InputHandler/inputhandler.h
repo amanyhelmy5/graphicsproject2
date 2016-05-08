@@ -43,7 +43,6 @@ public:
     bool is_key_pressed(int key);
     Actions handle_keyboard_input();
     void handle_mouse_input();
-	void HandleKeyboardInput(int key);
 };
 
 #endif // INPUTHANDLER_H
