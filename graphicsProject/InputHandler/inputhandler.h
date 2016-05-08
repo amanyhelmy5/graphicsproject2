@@ -13,7 +13,7 @@
 #include "../Application_Manager/ApplicationManager.h"
 #include "../Renderer/Renderer.h"
 #include "../actions.h"
-#include "game.h"
+#include "../game.h"
 
 class InputHandler
 {

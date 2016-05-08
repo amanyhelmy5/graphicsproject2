@@ -22,6 +22,7 @@ class Game
     float angle = 0.0f;
 
     std::shared_ptr<Model> spider;
+    std::shared_ptr<Model> skybox;
 public:
     Game(Renderer* renderer);
     void initialize();

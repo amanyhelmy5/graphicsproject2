@@ -49,7 +49,7 @@ protected:
 public:
 	Model();
     Model(std::string path);
-	Model(std::string path, std::string model_path);
+    Model(std::string model_path, std::string path);
 
 	~Model();
 

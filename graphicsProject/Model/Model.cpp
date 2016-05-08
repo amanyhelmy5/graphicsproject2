@@ -22,7 +22,7 @@ Model::Model(std::string path)
     set_texture(path);
 	pathfile = "";
 }
-Model::Model(std::string path,std::string model_path)
+Model::Model(std::string model_path, std::string path = "")
 {
     set_translation(0.0f, 0.0f, 0.0f);
     set_rotation(0.0f, 1.0f, 0.0f, 0.0f);
