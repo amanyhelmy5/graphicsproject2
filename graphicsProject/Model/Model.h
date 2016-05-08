@@ -9,16 +9,17 @@
 
 #include <vector>
 #include <memory>
-#include <string>
+#include <iostream>
 
 #ifdef __linux__
     #include <GL/glew.h>
 #elif _WIN32
     #include <gl/glew.h>
 #endif
+#include "../ShaderProgram/ShaderProgram.h"
 
 #include "../Texture/texture.h"
-
+#include "../objloader.hpp"
 class Model
 {
     friend class Game;
@@ -32,6 +33,7 @@ class Model
     GLuint m_UV_data_buffer_ID;
 protected:
     std::unique_ptr<Texture> m_texture;
+
     /*std::vector<glm::vec3> m_normal_data;
     std::vector<glm::vec2> mUV_data;*/
 
@@ -47,6 +49,8 @@ protected:
 public:
 	Model();
     Model(std::string path);
+	Model(std::string path, std::string model_path);
+
 	~Model();
 
     std::vector<glm::vec3> vertex_data;
@@ -54,12 +58,16 @@ public:
     std::vector<unsigned short> indices_data;
     std::vector<glm::vec2> UV_data;
 
+	std::vector<glm::vec3>	normals_data;
+	char* m_model_path;
+	std::string pathfile;
+
      void initialize();
      void draw();
      void set_texture(std::string path);
      void bind_texture();
      void clean_up();
-     glm::mat4 model_matrix() const;
+     glm::mat4 get_model_matrix() const;
      void set_translation(float x, float y, float z);
      void set_rotation(float angle, float x, float y, float z);
      void set_scale(float x, float y, float z);

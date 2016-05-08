@@ -49,7 +49,7 @@ void Renderer::draw()
     for (int i = 0; i < m_models.size(); i++)
     {
         m_models[i]->bind_texture();
-        squareMVP = VP * m_models[i]->model_matrix();
+        squareMVP = VP * m_models[i]->get_model_matrix();
         glUniformMatrix4fv(m_matrixID, 1, GL_FALSE, &squareMVP[0][0]);
         m_models[i]->draw();
     }

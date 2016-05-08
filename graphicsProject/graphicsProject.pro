@@ -19,7 +19,9 @@ HEADERS += \
     InputHandler/inputhandler.h \
     actions.h \
     Model/square.h \
-    game.h
+    game.h \
+    ShaderProgram/ShaderProgram.h \
+    objloader.hpp
 
 SOURCES += \
     Application_Manager/ApplicationManager.cpp \
@@ -32,5 +34,7 @@ SOURCES += \
     Texture/Texture_Loader/stb_image.c \
     InputHandler/inputhandler.cpp \
     Model/square.cpp \
-    game.cpp
+    game.cpp \
+    ShaderProgram/ShaderProgram.cpp \
+    objloader.cpp
 

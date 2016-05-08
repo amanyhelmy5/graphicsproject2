@@ -15,6 +15,7 @@ void Game::initialize()
     left_plane   =   std::shared_ptr<Square> (new Square("left.png"));
     front_plane  =   std::shared_ptr<Square> (new Square("front.png"));
     back_plane   =   std::shared_ptr<Square> (new Square("back.png"));
+	plane		 =   std::shared_ptr<Model>  (new Model("Spider/SpiderTex.jpg", "Spider/spider.obj"));
 
 //    test_square ->m_model_matrix = glm::scale(1.0f, 1.0f, 1.0f) * glm::translate(0.0f, 0.0f, 0.0f) * glm::rotate(0.0f, glm::vec3(1.0f, 0.0f, 0.0f));
 //    ground_plane->m_model_matrix = glm::translate(0.0f, -500.0f, 0.0f) * glm::rotate(180.0f, 0.0f, 1.0f, 0.0f) * glm::rotate(90.0f, -1.0f, 0.0f, 0.0f) * glm::scale(500.0f, 500.0f, 500.0f);
@@ -60,7 +61,6 @@ void Game::initialize()
 	left_plane->rotate(90.0f, 0.0f, -1.0f, 0.0f);
 	left_plane->set_translation(500.0f, 0.0f, 0.0f);
 	
-	
 
     m_renderer->add_model(test_square );
     m_renderer->add_model(ground_plane);
@@ -69,6 +69,8 @@ void Game::initialize()
     m_renderer->add_model(left_plane  );
     m_renderer->add_model(front_plane );
     m_renderer->add_model(back_plane  );
+	m_renderer->add_model(plane);
+
 }
 
 void Game::update(float delta, Actions p_actions)
