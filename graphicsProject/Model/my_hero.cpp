@@ -7,6 +7,15 @@ my_hero::my_hero()
 	vertex_data = Model::vertex_data;
 }
 
+my_hero::my_hero(std::string path) : Model::Model(path)
+{
+}
+
+my_hero::my_hero(std::string path, std::string model_path) : Model::Model(path, model_path)
+{
+}
+
+
 my_hero::~my_hero()
 {
 }

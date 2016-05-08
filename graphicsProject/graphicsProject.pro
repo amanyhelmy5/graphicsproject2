@@ -22,7 +22,10 @@ HEADERS += \
     game.h \
     Collision/Bounding_Box.h \
     Collision/Collidable_Model.h \
-    Collision/Collision_Manager.h
+    Collision/Collision_Manager.h \
+    ShaderProgram/ShaderProgram.h \
+    Model/my_hero.h \
+    objloader.hpp
 
 SOURCES += \
     Application_Manager/ApplicationManager.cpp \
@@ -38,5 +41,8 @@ SOURCES += \
     game.cpp \
     Collision/Bounding_Box.cpp \
     Collision/Collidable_Model.cpp \
-    Collision/Collision_Manager.cpp
+    Collision/Collision_Manager.cpp \
+    Model/my_hero.cpp \
+    ShaderProgram/ShaderProgram.cpp \
+    objloader.cpp
 

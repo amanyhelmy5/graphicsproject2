@@ -48,6 +48,7 @@
     <ClCompile Include="graphicsProject\game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="graphicsProject\Collision\Bounding_Box.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -58,6 +59,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="graphicsProject\Model\my_hero.cpp">
+=======
+    <ClCompile Include="graphicsProject\ShaderProgram\ShaderProgram.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="graphicsProject\objloader.cpp">
+>>>>>>> master
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -99,6 +106,7 @@
     <ClInclude Include="graphicsProject\game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="graphicsProject\Collision\Bounding_Box.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -109,6 +117,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="graphicsProject\Model\my_hero.h">
+=======
+    <ClInclude Include="graphicsProject\ShaderProgram\ShaderProgram.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="graphicsProject\objloader.hpp">
+>>>>>>> master
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
