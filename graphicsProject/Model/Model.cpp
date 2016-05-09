@@ -21,7 +21,9 @@ Model::Model(std::string path)
     set_scale(1.0f, 1.0f, 1.0f);
     set_texture(path);
 	pathfile = "";
+    initialize();
 }
+
 Model::Model(std::string model_path, std::string path = "")
 {
     set_translation(0.0f, 0.0f, 0.0f);
@@ -52,6 +54,7 @@ void Model::initialize()
 	{
 		(loadOBJ(pathfile.c_str(), vertex_data, UV_data, normals_data));
 	}
+
 	glGenVertexArrays(1, &m_vertex_array_object_ID);
 	glBindVertexArray(m_vertex_array_object_ID);
 
@@ -87,21 +90,7 @@ void Model::initialize()
 		//note that the number of elements = 2 because UV coords are of type vec2
 		glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 0, (void*)0);
 	}
-	//now all the state is save in the Vertex Array Object, we only need to bind it in the drawing code (each frame).
-	/*std::vector<glm::vec3> houseVertices;
-	std::vector<glm::vec3>
-	houseNormals;  std::vector<glm::vec2> houseUVs; */
-	
-	//std::cerr << "Couldn't load model! " << m_model_path << std::endl;
-	// myHouse = std::unique_ptr<Model>(new Model()); 
-	//myHouse->VertexData = houseVertices; 
-	//myHouse->UVData = houseUVs; 
-	//myHouse->NormalsData = houseNormals;
-	//houseTexture = std::unique_ptr<Texture>(new Texture("some models/house/house.jpg", 1));
-
 }
-
-
 
 void Model::draw()
 {
@@ -159,6 +148,33 @@ void Model::move(float x, float y, float z)
     m_position.z += z;
 }
 
+void Model::set_direction(glm::vec3 direction)
+{
+	m_direction = direction;
+	//m_DirectionAngle = glm::atan(m_Direction.z/m_Direction.x)*1800*PI;
+}
+
+glm::vec3 Model::get_direction()
+{
+	return m_direction;
+}
+
+glm::vec3 Model::get_position()
+{
+	return m_position;
+}
+
+void Model::set_position(glm::vec3 position)
+{
+	m_position = position;
+}
+
+void Model::move()
+{
+
+}
+
+
 void Model::clean_up()
 {
 	glDeleteBuffers(1, &m_vertex_data_buffer_ID);
@@ -166,4 +182,9 @@ void Model::clean_up()
 	glDeleteBuffers(1, &m_indices_data_buffer_ID);
 	glDeleteBuffers(1, &m_UV_data_buffer_ID);
 	glDeleteVertexArrays(1, &m_vertex_array_object_ID); 
+}
+
+std::vector<glm::vec3>Model::get_vertices()
+{
+	return vertex_data;
 }

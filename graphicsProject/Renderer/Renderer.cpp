@@ -100,6 +100,11 @@ void Renderer::add_model(std::shared_ptr<Model> model)
     m_models.push_back( model );
 }
 
+void Renderer::empty_models()
+{
+    m_models.clear();
+}
+
 void Renderer::clean_up()
 {
     glDeleteProgram(m_programID);

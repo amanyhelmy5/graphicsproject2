@@ -1,8 +1,7 @@
-
 #include"Level1.h"
 
-Level1::Level1(Renderer* renderer) : Game(renderer)
-{	
+Level1::Level1(Renderer* renderer, Collision_Manager* collision_manager) : Game(renderer, collision_manager)
+{
 }
 
 Level1::~Level1()
@@ -11,27 +10,26 @@ Level1::~Level1()
 
 void Level1::initialize()
 {
-	//plane		 =   std::shared_ptr<Model>  (new Model("poss/grass.png", "poss/grass.obj"));
-	//body = std::shared_ptr<Model>(new Model("spider/torch2.png", "spider/torch2."));
-	test_square = std::shared_ptr<Square>(new Square("uvtemplate.bmp"));
-	spider = std::shared_ptr<Model>(new Model("Spider/spider.obj", "Spider/SpiderTex.jpg"));
-	skybox = std::shared_ptr<Model>(new Model("skybox/skybox.obj", "skybox/skybox.png"));
-	test_square->set_scale(0.25f, 0.25f, 0.25f);
-	test_square->set_translation(0.0f, 0.0f, 0.0f);
+    spider = std::shared_ptr<Collidable_Model>(new Collidable_Model("Spider/spider.obj", "Spider/SpiderTex.jpg"));
+    spider2 = std::shared_ptr<Collidable_Model>(new Collidable_Model("Spider/spider.obj", "Spider/SpiderTex.jpg"));
+    skybox = std::shared_ptr<Collidable_Model>(new Collidable_Model("skybox/skybox.obj", "skybox/skybox.png"));
 	spider->set_scale(0.1f, 0.1f, 0.1f);
-	skybox->set_scale(5.0f, 5.0f, 5.0f);
-	m_renderer->add_model(test_square);
+    spider2->set_scale(0.1f, 0.1f, 0.1f);
+    spider->move(0.0f, 0.0f, -50.0f);
+    spider2->move(0.0f, 10.0f, -50.0f);
+    skybox->set_scale(100.0f, 100.0f, 100.0f);
 	m_renderer->add_model(spider);
+    m_renderer->add_model(spider2);
 	m_renderer->add_model(skybox);
-
+    m_collision_manager->AddCollidableModel((Collidable*)spider.get());
+    m_collision_manager->AddCollidableModel((Collidable*)spider2.get());
 }
 
  void Level1::update(float delta, Actions p_actions)
 {
 	if (p_actions.forwards)
 	{
-		test_square->move(0.0f, 0.2, 0.0f);
-		spider->rotate(90.0f, 0.0f, 1.0f, 0.0f);
+        spider->rotate(40.0f, 1.0f, 0.0f, 0.0f);
+        spider->move(0.0f, 0.3f, 0.0f);
 	}
-	angle += 1.1f;
 }

@@ -20,6 +20,10 @@ HEADERS += \
     actions.h \
     Model/square.h \
     game.h \
+    Collision/Bounding_Box.h \
+    Collision/Collidable_Model.h \
+    Collision/Collision_Manager.h \
+    Model/my_hero.h \
     ShaderProgram/ShaderProgram.h \
     objloader.hpp \
     Level1.h \
@@ -37,6 +41,10 @@ SOURCES += \
     InputHandler/inputhandler.cpp \
     Model/square.cpp \
     game.cpp \
+    Collision/Bounding_Box.cpp \
+    Collision/Collidable_Model.cpp \
+    Collision/Collision_Manager.cpp \
+    Model/my_hero.cpp \
     ShaderProgram/ShaderProgram.cpp \
     objloader.cpp \
     Level1.cpp \

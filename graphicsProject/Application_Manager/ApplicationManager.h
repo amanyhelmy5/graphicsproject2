@@ -16,6 +16,8 @@
 #include "../game.h"
 #include "../Level1.h"
 #include "../Level2.h"
+#include "../Collision/Collision_Manager.h"
+
 class InputHandler;
 
 class ApplicationManager
@@ -35,6 +37,8 @@ class ApplicationManager
     static void _on_window_resize(GLFWwindow* window, int width, int height);
 
     float m_time;
+
+	std::unique_ptr<Collision_Manager> m_collision_manager;
 
 public:
     static int WINDOW_SIZE_WIDTH;

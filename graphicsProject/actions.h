@@ -8,7 +8,6 @@ struct Actions{
     bool backwards = false;
     bool jump = false;
     bool fall = false;
-	bool newlevel = false;
 };
 
 #endif // ACTIONS_H

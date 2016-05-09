@@ -6,6 +6,9 @@ int InputHandler::KEY_PRESSED = -1;
 int InputHandler::KEY_STATE = -1;
 double InputHandler::m_X_mouse_position = -1.0;
 double InputHandler::m_Y_mouse_position = -1.0;
+int counter1 = 0;
+int counter2 = 0;
+int counter3 = 0;
 
 // singleton
 InputHandler* InputHandler::instance(Renderer *Renderer, GLFWwindow *Window)
@@ -97,8 +100,6 @@ void InputHandler::handle_key_release()
             m_actions.jump = false;
         if (InputHandler::KEY_PRESSED == GLFW_KEY_LEFT_CONTROL)
             m_actions.fall = false;
-		if (InputHandler::KEY_PRESSED == GLFW_KEY_KP_1 )
-			m_actions.fall = false;
         InputHandler::KEY_PRESSED = -1;
     }
     //mRenderer->HandleKeyboardInput(actions);

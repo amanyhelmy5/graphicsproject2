@@ -10,6 +10,7 @@ class Square : public Model
 {
     glm::vec3 m_color;
 public:
+	Square();
     Square(int color);
     Square(std::string path);
 };

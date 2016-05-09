@@ -3,11 +3,12 @@
 #include "game.h"
 class Level2 : public Game
 {
+    std::shared_ptr<Collidable_Model> dead_body;
 public:
 	
 
-	Level2(Renderer* renderer);
-	~Level2();
+    Level2(Renderer* renderer, Collision_Manager* collision_manager);
+    ~Level2();
 	
     virtual void initialize();
     virtual void update(float delta, Actions p_actions);
