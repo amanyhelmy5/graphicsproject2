@@ -112,32 +112,10 @@
     <None Include="graphicsProject\MultiColor.fragmentshader" />
     <None Include="graphicsProject\SimpleTransformWithColor.vertexshader" />
   </ItemGroup>
-<<<<<<< HEAD
-=======
-  <ItemGroup>
-    <ClInclude Include="graphicsProject\actions.h" />
-    <ClInclude Include="graphicsProject\Application_Manager\ApplicationManager.h" />
-    <ClInclude Include="graphicsProject\Collision\Bounding_Box.h" />
-    <ClInclude Include="graphicsProject\Collision\Collidable_Model.h" />
-    <ClInclude Include="graphicsProject\Collision\Collision_Manager.h" />
-    <ClInclude Include="graphicsProject\EulerCamera\EulerCamera.h" />
-    <ClInclude Include="graphicsProject\game.h" />
-    <ClInclude Include="graphicsProject\InputHandler\inputhandler.h" />
-    <ClInclude Include="graphicsProject\Model\Model.h" />
-    <ClInclude Include="graphicsProject\Model\my_hero.h" />
-    <ClInclude Include="graphicsProject\Model\square.h" />
-    <ClInclude Include="graphicsProject\objloader.hpp" />
-    <ClInclude Include="graphicsProject\Renderer\Renderer.h" />
-    <ClInclude Include="graphicsProject\ShaderProgram\ShaderProgram.h" />
-    <ClInclude Include="graphicsProject\Shaders\shader.hpp" />
-    <ClInclude Include="graphicsProject\Texture\texture.h" />
-    <ClInclude Include="graphicsProject\Texture\Texture_Loader\stb_image.h" />
-  </ItemGroup>
   <ItemGroup>
     <Image Include="graphicsProject\bricks.jpg" />
     <Image Include="graphicsProject\uvtemplate.bmp" />
   </ItemGroup>
->>>>>>> master
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
