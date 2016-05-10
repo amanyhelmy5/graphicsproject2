@@ -60,11 +60,12 @@ bool ApplicationManager::initalize_application(int window_size_width, int window
 
 
     this->initialize_components(); // To be able to draw
+    m_camera = m_renderer->get_camera();
 
     m_input_handler = std::unique_ptr<InputHandler>( InputHandler::instance(this->m_renderer.get(), this->m_window) );
     m_collision_manager = std::unique_ptr<Collision_Manager>(new Collision_Manager());
-    m_levels.push_back(  std::unique_ptr<Level1>(new Level1(m_renderer.get(), m_collision_manager.get())));
-    m_levels.push_back(std::unique_ptr<Level2>(new Level2(m_renderer.get(), m_collision_manager.get())));
+    m_levels.push_back(  std::unique_ptr<Level1>(new Level1(m_renderer.get(), m_collision_manager.get(), m_camera)));
+    m_levels.push_back(std::unique_ptr<Level2>(new Level2(m_renderer.get(), m_collision_manager.get(), m_camera)));
 
 	m_levels[current_level]->initialize();
 	return true;
@@ -101,7 +102,7 @@ void ApplicationManager::start_main_loop()
 
 		//mInput_handler->HandleMouseInput();
 		m_actions = m_input_handler->handle_keyboard_input();
-		m_renderer->handle_player_actions(m_actions);
+        //m_renderer->handle_player_actions(m_actions);
 
         if (m_input_handler->is_key_pressed(GLFW_KEY_1) && current_level < m_levels.size()-1)
         {

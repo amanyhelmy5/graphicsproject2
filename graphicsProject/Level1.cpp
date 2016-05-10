@@ -1,6 +1,6 @@
 #include"Level1.h"
 
-Level1::Level1(Renderer* renderer, Collision_Manager* collision_manager) : Game(renderer, collision_manager)
+Level1::Level1(Renderer* renderer, Collision_Manager* collision_manager, EulerCamera* camera) : Game(renderer, collision_manager, camera)
 {
 }
 
@@ -25,9 +25,10 @@ void Level1::initialize()
     m_collision_manager->AddCollidableModel((Collidable*)spider2.get());
 }
 
- void Level1::update(float delta, Actions p_actions)
+ void Level1::update(float delta, Actions actions)
 {
-	if (p_actions.forwards)
+    Game::update(delta, actions);
+    if (actions.forwards)
 	{
         spider->rotate(40.0f, 1.0f, 0.0f, 0.0f);
         spider->move(0.0f, 0.3f, 0.0f);

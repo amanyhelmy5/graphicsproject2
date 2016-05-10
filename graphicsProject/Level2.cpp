@@ -1,7 +1,7 @@
 #include "Level2.h"
 
 
-Level2::Level2(Renderer* renderer, Collision_Manager* collision_manager) : Game(renderer, collision_manager)
+Level2::Level2(Renderer* renderer, Collision_Manager* collision_manager, EulerCamera* camera) : Game(renderer, collision_manager, camera)
 {
 }
 
@@ -20,9 +20,10 @@ void Level2::initialize()
 
 }
 
-void Level2::update(float delta, Actions p_actions)
+void Level2::update(float delta, Actions actions)
 {
-	if (p_actions.forwards)
+    Game::update(delta, actions);
+    if (actions.forwards)
 	{
         dead_body->rotate(90.0f, 0.0f, 1.0f, 0.0f);
 	}

@@ -53,7 +53,7 @@ public:
     void empty_models();
 
 	void initialize_shaders();
-
+    EulerCamera* get_camera();
 };
 
 #endif // Renderer_h__

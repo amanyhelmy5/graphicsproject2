@@ -7,11 +7,11 @@ class Level2 : public Game
 public:
 	
 
-    Level2(Renderer* renderer, Collision_Manager* collision_manager);
+    Level2(Renderer* renderer, Collision_Manager* collision_manager, EulerCamera* camera);
     ~Level2();
 	
     virtual void initialize();
-    virtual void update(float delta, Actions p_actions);
+    virtual void update(float delta, Actions actions);
 private:
 
 };

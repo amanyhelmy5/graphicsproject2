@@ -31,6 +31,7 @@ class ApplicationManager
     std::unique_ptr<Renderer> m_renderer;
 	std::vector < std::unique_ptr<Game> > m_levels;
     std::unique_ptr<InputHandler> m_input_handler;
+    EulerCamera* m_camera;
 
     void initialize_components();
     void update();

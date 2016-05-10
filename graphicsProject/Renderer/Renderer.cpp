@@ -53,30 +53,16 @@ void Renderer::draw()
         glUniformMatrix4fv(m_matrixID, 1, GL_FALSE, &squareMVP[0][0]);
         m_models[i]->draw();
     }
+
+    m_camera->update_view_matrix();
 }
 
 void Renderer::handle_player_actions(Actions actions)
 {
-    if (actions.forwards)
-        m_camera->walk(1);
 
-    if (actions.backwards)
-        m_camera->walk(-1);
-
-    if (actions.right)
-        m_camera->strafe(1);
-
-    if (actions.left)
-        m_camera->strafe(-1);
-
-    if (actions.jump)
-        m_camera->fly(1);
-
-    if (actions.fall)
-        m_camera->fly(-1);
 
 	//continue the remaining movements.
-    m_camera->update_view_matrix();
+
 }
 
 void Renderer::update_camera_view(double delta_X,double delta_Y)
@@ -103,6 +89,11 @@ void Renderer::add_model(std::shared_ptr<Model> model)
 void Renderer::empty_models()
 {
     m_models.clear();
+}
+
+EulerCamera* Renderer::get_camera()
+{
+    return m_camera.get();
 }
 
 void Renderer::clean_up()
