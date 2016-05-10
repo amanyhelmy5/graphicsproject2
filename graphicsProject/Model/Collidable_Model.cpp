@@ -19,7 +19,7 @@ Collidable_Model::~Collidable_Model()
 {
 }
 
-void::Collidable_Model::initialize()
+void Collidable_Model::initialize()
 {
 	bounding_box = Collidable::CalculateBoundingBox(vertex_data);
 	Set_BoundingBox(bounding_box);

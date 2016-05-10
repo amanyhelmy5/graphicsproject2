@@ -4,6 +4,7 @@
 Game::~Game()
 {
     m_renderer->empty_models();
+    m_collision_manager->empty_collidable_models();
 }
 
 Game::Game(Renderer * renderer, Collision_Manager * collision_manager, EulerCamera* camera)
