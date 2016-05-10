@@ -1,201 +1,52 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
+    <ClCompile Include="graphicsProject\Application_Manager\ApplicationManager.cpp" />
+    <ClCompile Include="graphicsProject\Collision\Bounding_Box.cpp" />
+    <ClCompile Include="graphicsProject\Collision\Collision_Manager.cpp" />
+    <ClCompile Include="graphicsProject\EulerCamera\EulerCamera.cpp" />
+    <ClCompile Include="graphicsProject\game.cpp" />
+    <ClCompile Include="graphicsProject\InputHandler\inputhandler.cpp" />
+    <ClCompile Include="graphicsProject\Level1.cpp" />
+    <ClCompile Include="graphicsProject\Level2.cpp" />
+    <ClCompile Include="graphicsProject\main.cpp" />
+    <ClCompile Include="graphicsProject\Model\Model.cpp" />
+    <ClCompile Include="graphicsProject\Model\square.cpp" />
+    <ClCompile Include="graphicsProject\objloader.cpp" />
+    <ClCompile Include="graphicsProject\Renderer\Renderer.cpp" />
+    <ClCompile Include="graphicsProject\ShaderProgram\ShaderProgram.cpp" />
+    <ClCompile Include="graphicsProject\Shaders\shader.cpp" />
+    <ClCompile Include="graphicsProject\Texture\texture.cpp" />
+    <ClCompile Include="graphicsProject\Texture\Texture_Loader\stb_image.c" />
+    <ClCompile Include="graphicsProject\Model\Collidable_Model.cpp" />
+    <ClCompile Include="graphicsProject\Collision\Collidable.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="graphicsProject\actions.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="graphicsProject\game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="graphicsProject\Level1.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="graphicsProject\Level2.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="graphicsProject\objloader.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="graphicsProject\Texture\texture.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="graphicsProject\Texture\Texture_Loader\stb_image.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="graphicsProject\Shaders\shader.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="graphicsProject\ShaderProgram\ShaderProgram.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="graphicsProject\Renderer\Renderer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="graphicsProject\Model\Model.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="graphicsProject\Model\square.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="graphicsProject\InputHandler\inputhandler.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="graphicsProject\EulerCamera\EulerCamera.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="graphicsProject\Application_Manager\ApplicationManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    <ClInclude Include="graphicsProject\actions.h" />
+    <ClInclude Include="graphicsProject\Application_Manager\ApplicationManager.h" />
+    <ClInclude Include="graphicsProject\EulerCamera\EulerCamera.h" />
+    <ClInclude Include="graphicsProject\game.h" />
+    <ClInclude Include="graphicsProject\InputHandler\inputhandler.h" />
+    <ClInclude Include="graphicsProject\Level1.h" />
+    <ClInclude Include="graphicsProject\Level2.h" />
+    <ClInclude Include="graphicsProject\Model\Model.h" />
+    <ClInclude Include="graphicsProject\Model\square.h" />
+    <ClInclude Include="graphicsProject\objloader.hpp" />
+    <ClInclude Include="graphicsProject\Renderer\Renderer.h" />
+    <ClInclude Include="graphicsProject\ShaderProgram\ShaderProgram.h" />
+    <ClInclude Include="graphicsProject\Shaders\shader.hpp" />
+    <ClInclude Include="graphicsProject\Texture\texture.h" />
+    <ClInclude Include="graphicsProject\Texture\Texture_Loader\stb_image.h" />
+    <ClInclude Include="graphicsProject\Model\Collidable_Model.h" />
+    <ClInclude Include="graphicsProject\Collision\Collidable.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="graphicsProject\game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="graphicsProject\Level1.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="graphicsProject\Level2.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="graphicsProject\main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="graphicsProject\objloader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="graphicsProject\Texture\texture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="graphicsProject\Texture\Texture_Loader\stb_image.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="graphicsProject\Shaders\shader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="graphicsProject\ShaderProgram\ShaderProgram.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="graphicsProject\Renderer\Renderer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="graphicsProject\Model\Model.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="graphicsProject\Model\square.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="graphicsProject\InputHandler\inputhandler.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-<<<<<<< HEAD
-    <ClCompile Include="graphicsProject\EulerCamera\EulerCamera.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="graphicsProject\Application_Manager\ApplicationManager.cpp">
-=======
-<<<<<<< HEAD
-    <ClCompile Include="graphicsProject\Collision\Bounding_Box.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="graphicsProject\Collision\Collidable_Model.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="graphicsProject\Collision\Collision_Manager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="graphicsProject\Model\my_hero.cpp">
-=======
-    <ClCompile Include="graphicsProject\ShaderProgram\ShaderProgram.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="graphicsProject\objloader.cpp">
->>>>>>> master
->>>>>>> master
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <Image Include="graphicsProject\bricks.jpg" />
+    <Image Include="graphicsProject\uvtemplate.bmp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="graphicsProject\graphicsProject.pro" />
     <None Include="graphicsProject\MultiColor.fragmentshader" />
     <None Include="graphicsProject\SimpleTransformWithColor.vertexshader" />
   </ItemGroup>
-<<<<<<< HEAD
-=======
-  <ItemGroup>
-    <ClInclude Include="graphicsProject\Shaders\shader.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="graphicsProject\EulerCamera\EulerCamera.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="graphicsProject\Model\Model.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="graphicsProject\Renderer\Renderer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="graphicsProject\Texture\texture.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="graphicsProject\Texture\Texture_Loader\stb_image.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="graphicsProject\Application_Manager\ApplicationManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="graphicsProject\InputHandler\inputhandler.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="graphicsProject\actions.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="graphicsProject\Model\square.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="graphicsProject\game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-<<<<<<< HEAD
-    <ClInclude Include="graphicsProject\Collision\Bounding_Box.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="graphicsProject\Collision\Collidable_Model.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="graphicsProject\Collision\Collision_Manager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="graphicsProject\Model\my_hero.h">
-=======
-    <ClInclude Include="graphicsProject\ShaderProgram\ShaderProgram.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="graphicsProject\objloader.hpp">
->>>>>>> master
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="graphicsProject\bricks.jpg">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="graphicsProject\uvtemplate.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-  </ItemGroup>
->>>>>>> master
 </Project>
