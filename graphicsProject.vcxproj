@@ -72,11 +72,13 @@
   <ItemGroup>
     <ClInclude Include="graphicsProject\actions.h" />
     <ClInclude Include="graphicsProject\Application_Manager\ApplicationManager.h" />
+    <ClInclude Include="graphicsProject\Collision\Collidable.h" />
     <ClInclude Include="graphicsProject\EulerCamera\EulerCamera.h" />
     <ClInclude Include="graphicsProject\game.h" />
     <ClInclude Include="graphicsProject\InputHandler\inputhandler.h" />
     <ClInclude Include="graphicsProject\Level1.h" />
     <ClInclude Include="graphicsProject\Level2.h" />
+    <ClInclude Include="graphicsProject\Model\Collidable_Model.h" />
     <ClInclude Include="graphicsProject\Model\Model.h" />
     <ClInclude Include="graphicsProject\Model\square.h" />
     <ClInclude Include="graphicsProject\objloader.hpp" />
@@ -89,7 +91,7 @@
   <ItemGroup>
     <ClCompile Include="graphicsProject\Application_Manager\ApplicationManager.cpp" />
     <ClCompile Include="graphicsProject\Collision\Bounding_Box.cpp" />
-    <ClCompile Include="graphicsProject\Collision\Collidable_Model.cpp" />
+    <ClCompile Include="graphicsProject\Collision\Collidable.cpp" />
     <ClCompile Include="graphicsProject\Collision\Collision_Manager.cpp" />
     <ClCompile Include="graphicsProject\EulerCamera\EulerCamera.cpp" />
     <ClCompile Include="graphicsProject\game.cpp" />
@@ -97,8 +99,8 @@
     <ClCompile Include="graphicsProject\Level1.cpp" />
     <ClCompile Include="graphicsProject\Level2.cpp" />
     <ClCompile Include="graphicsProject\main.cpp" />
+    <ClCompile Include="graphicsProject\Model\Collidable_Model.cpp" />
     <ClCompile Include="graphicsProject\Model\Model.cpp" />
-    <ClCompile Include="graphicsProject\Model\my_hero.cpp" />
     <ClCompile Include="graphicsProject\Model\square.cpp" />
     <ClCompile Include="graphicsProject\objloader.cpp" />
     <ClCompile Include="graphicsProject\Renderer\Renderer.cpp" />
