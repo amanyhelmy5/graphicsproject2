@@ -2,7 +2,7 @@
 #define Collision_Manager_h__
 
 #include <vector>
-#include "Collidable_Model.h"
+#include "Collidable.h"
 
 class Collision_Manager
 {

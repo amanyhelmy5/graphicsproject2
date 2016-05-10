@@ -3,9 +3,9 @@
 
 #include <memory>
 #include "Renderer/Renderer.h"
-#include "Model/my_hero.h"
+#include "Model/Collidable_Model.h"
 #include "Collision/Collision_Manager.h"
-#include "Collision/Collidable_Model.h"
+#include "Collision/Collidable.h"
 
 class ApplicationManager;
 #include "Model/square.h"

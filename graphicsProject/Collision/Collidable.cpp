@@ -1,4 +1,4 @@
-#include "Collidable_Model.h"
+#include "Collidable.h"
 
 
 Collidable::Collidable(void)
