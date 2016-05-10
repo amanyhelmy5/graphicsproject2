@@ -31,6 +31,7 @@ class Model
     GLuint m_color_data_buffer_ID;
     GLuint m_indices_data_buffer_ID;
     GLuint m_UV_data_buffer_ID;
+	GLuint m_normals_buffer_ID;
 
 	std::vector<glm::vec3> color_data;
 	std::vector<unsigned short> indices_data;
@@ -64,7 +65,7 @@ public:
 	virtual std::vector<glm::vec3> get_vertex_data() = 0;
 
      void initialize();
-     void draw();
+	 void draw(GLuint vertexPosition_modelspaceID, GLuint inputColorID, GLuint texCoordID, GLuint vertexNormal_modelspaceID);
      void set_texture(std::string path);
      void bind_texture();
      void clean_up();

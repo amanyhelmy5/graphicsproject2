@@ -20,6 +20,8 @@ void Renderer::initialize()
     initialize_shaders();
 
     m_matrixID = glGetUniformLocation(m_programID, "MVP");
+
+	initialize_light();
 }
 
 
@@ -51,7 +53,7 @@ void Renderer::draw()
         m_models[i]->bind_texture();
         squareMVP = VP * m_models[i]->get_model_matrix();
         glUniformMatrix4fv(m_matrixID, 1, GL_FALSE, &squareMVP[0][0]);
-        m_models[i]->draw();
+		m_models[i]->draw(vertexPosition_modelspaceID, inputColorID, texCoordID, vertexNormal_modelspaceID);
     }
 
     m_camera->update_view_matrix();
@@ -79,6 +81,11 @@ void Renderer::initialize_shaders()
     m_programID = LoadShaders( "SimpleTransformWithColor.vertexshader", "MultiColor.fragmentshader" );
 
     m_rendering_modeID = glGetUniformLocation(m_programID,"RenderingMode");
+	vertexNormal_modelspaceID = glGetAttribLocation(m_programID, "vertexNormal_modelspace");
+	ModelMatrixID = glGetUniformLocation(m_programID, "ModelMatrix");
+	inputColorID = glGetAttribLocation(m_programID, "inputColor");
+	texCoordID = glGetAttribLocation(m_programID, "texCoord");
+
 }
 
 void Renderer::add_model(std::shared_ptr<Model> model)
@@ -99,4 +106,17 @@ EulerCamera* Renderer::get_camera()
 void Renderer::clean_up()
 {
     glDeleteProgram(m_programID);
+}
+void  Renderer::initialize_light()
+{
+	//setup the light position.
+	LightPositionID = glGetUniformLocation(m_programID, "LightPosition_worldspace");
+	lightPosition = glm::vec3(1.0, 0.25, 0.0);
+	glUniform3fv(LightPositionID, 1, &lightPosition[0]);
+	//setup the ambient light component.
+	AmbientLightID = glGetUniformLocation(m_programID, "ambientLight");
+	ambientLight = glm::vec3(0.1, 0.1, 0.1);
+	glUniform3fv(AmbientLightID, 1, &ambientLight[0]);
+	//setup the eye position.
+	EyePositionID = glGetUniformLocation(m_programID, "EyePosition_worldspace");
 }

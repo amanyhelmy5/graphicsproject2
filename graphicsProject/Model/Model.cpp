@@ -58,7 +58,7 @@ void Model::initialize()
 	glGenVertexArrays(1, &m_vertex_array_object_ID);
 	glBindVertexArray(m_vertex_array_object_ID);
 
-	if (vertex_data.size() > 0)
+	if (vertex_data.size()>0)
 	{
 		glGenBuffers(1, &m_vertex_data_buffer_ID);
 		glBindBuffer(GL_ARRAY_BUFFER, m_vertex_data_buffer_ID);
@@ -75,33 +75,67 @@ void Model::initialize()
 		glEnableVertexAttribArray(1);
 		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
 	}
-	if (indices_data.size() > 0)
+	if (indices_data.size()>0)
 	{
 		glGenBuffers(1, &m_indices_data_buffer_ID);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_indices_data_buffer_ID);
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices_data.size() * sizeof(unsigned short), &indices_data[0], GL_STATIC_DRAW);
+		glEnableVertexAttribArray(0);
+		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
 	}
 	if (UV_data.size() > 0)
 	{
 		glGenBuffers(1, &m_UV_data_buffer_ID);
 		glBindBuffer(GL_ARRAY_BUFFER, m_UV_data_buffer_ID);
 		glBufferData(GL_ARRAY_BUFFER, UV_data.size() * sizeof(glm::vec2), &UV_data[0], GL_STATIC_DRAW);
-		glEnableVertexAttribArray(2);
-		//note that the number of elements = 2 because UV coords are of type vec2
-		glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 0, (void*)0);
+	}
+	if (normals_data.size() > 0)
+	{
+		glGenBuffers(1, &m_normals_buffer_ID);
+		glBindBuffer(GL_ARRAY_BUFFER, m_normals_buffer_ID);
+		glBufferData(GL_ARRAY_BUFFER, normals_data.size() * sizeof(glm::vec3), &normals_data[0], GL_STATIC_DRAW);
 	}
 }
 
-void Model::draw()
+void Model::draw(GLuint vertexPosition_modelspaceID, GLuint inputColorID, GLuint texCoordID, GLuint vertexNormal_modelspaceID)
 {
 	glBindVertexArray(m_vertex_array_object_ID);
+	if (vertex_data.size()>0)
+	{
+		glBindBuffer(GL_ARRAY_BUFFER, m_vertex_data_buffer_ID);
+		glEnableVertexAttribArray(vertexPosition_modelspaceID);
+		glVertexAttribPointer(vertexPosition_modelspaceID, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
+	}
+
+	if (color_data.size() > 0)
+	{
+		glBindBuffer(GL_ARRAY_BUFFER, m_color_data_buffer_ID);
+		glEnableVertexAttribArray(inputColorID);
+		glVertexAttribPointer(inputColorID, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
+	}
+
+	if (UV_data.size() > 0)
+	{
+		glBindBuffer(GL_ARRAY_BUFFER, m_UV_data_buffer_ID);
+		glEnableVertexAttribArray(texCoordID);
+		glVertexAttribPointer(texCoordID, 2, GL_FLOAT, GL_FALSE, 0, (void*)0);
+	}
+	if (normals_data.size() > 0)
+	{
+		glBindBuffer(GL_ARRAY_BUFFER, m_normals_buffer_ID);
+		glEnableVertexAttribArray(vertexNormal_modelspaceID);
+		glVertexAttribPointer(vertexNormal_modelspaceID, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
+	}
+
 	if (indices_data.size() > 0)
 	{
-        glDrawElements(GL_TRIANGLES, indices_data.size(), GL_UNSIGNED_SHORT,0);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_indices_data_buffer_ID);
+		glDrawElements(GL_TRIANGLES, indices_data.size(), GL_UNSIGNED_SHORT, 0);
 	}
 	else
 	{
 		//no indices provided.
+		glBindBuffer(GL_ARRAY_BUFFER, m_vertex_data_buffer_ID);
 		glDrawArrays(GL_TRIANGLES, 0, vertex_data.size());
 	}
 

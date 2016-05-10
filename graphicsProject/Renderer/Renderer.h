@@ -29,11 +29,20 @@ class Renderer
 	GLuint m_programID;
 	GLuint m_matrixID;
 
+	GLuint AmbientLightID;
+	GLuint LightPositionID;
+	GLuint EyePositionID;
+	
+	glm::vec3 ambientLight;
+	glm::vec3 lightPosition;
+
 	std::vector< std::shared_ptr<Model> > m_models;
 	std::unique_ptr<EulerCamera> m_camera;
 
 	GLuint m_rendering_modeID;
 	RenderingMode m_rendering_mode;
+	GLuint vertexPosition_modelspaceID, inputColorID, texCoordID, vertexNormal_modelspaceID;
+	GLuint ModelMatrixID;
 
 	Actions m_actions;
 
@@ -54,6 +63,7 @@ public:
 
 	void initialize_shaders();
     EulerCamera* get_camera();
+	void initialize_light();
 };
 
 #endif // Renderer_h__
