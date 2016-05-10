@@ -1,5 +1,5 @@
 
-#include"my_hero.h"
+#include"Collidable_Model.h"
 
 
 Collidable_Model::Collidable_Model()
@@ -23,6 +23,4 @@ void::Collidable_Model::initialize()
 {
 	bounding_box = Collidable::CalculateBoundingBox(vertex_data);
 	Set_BoundingBox(bounding_box);
-	
-	
 }

@@ -1,7 +1,7 @@
 #include "Model.h"
 #include <string>
 
-#include "../Collision/Collidable_Model.h"
+#include "../Collision/Collidable.h"
 
 class  Collidable_Model : public Model, public Collidable
 {

@@ -21,13 +21,13 @@ HEADERS += \
     Model/square.h \
     game.h \
     Collision/Bounding_Box.h \
-    Collision/Collidable_Model.h \
     Collision/Collision_Manager.h \
-    Model/my_hero.h \
     ShaderProgram/ShaderProgram.h \
     objloader.hpp \
     Level1.h \
-    Level2.h
+    Level2.h \
+    Model/Collidable_Model.h \
+    Collision/Collidable.h
 
 SOURCES += \
     Application_Manager/ApplicationManager.cpp \
@@ -42,11 +42,11 @@ SOURCES += \
     Model/square.cpp \
     game.cpp \
     Collision/Bounding_Box.cpp \
-    Collision/Collidable_Model.cpp \
     Collision/Collision_Manager.cpp \
-    Model/my_hero.cpp \
     ShaderProgram/ShaderProgram.cpp \
     objloader.cpp \
     Level1.cpp \
-    Level2.cpp
+    Level2.cpp \
+    Model/Collidable_Model.cpp \
+    Collision/Collidable.cpp
 
