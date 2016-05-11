@@ -55,6 +55,7 @@ void Collision_Manager::RemoveCollidableModel(Collidable* model)
 
 void Collision_Manager::empty_collidable_models()
 {
-    collidableModels.clear();
+	if (collidableModels.size() > 0)
+		collidableModels.clear();
 }
 

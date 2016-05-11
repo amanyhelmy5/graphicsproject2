@@ -20,21 +20,22 @@ void Game::initialize()
 
 void Game::update(float delta, Actions actions)
 {
+	float speed = 10.0f;
     if (actions.forwards)
-        m_camera->walk(1);
+        m_camera->walk(speed);
 
     if (actions.backwards)
-        m_camera->walk(-1);
+		m_camera->walk(-speed);
 
     if (actions.right)
-        m_camera->strafe(1);
+		m_camera->strafe(speed);
 
     if (actions.left)
-        m_camera->strafe(-1);
+		m_camera->strafe(-speed);
 
     if (actions.jump)
-        m_camera->fly(1);
+		m_camera->fly(speed);
 
     if (actions.fall)
-        m_camera->fly(-1);
+		m_camera->fly(-speed);
 }
