@@ -16,6 +16,8 @@
 #include "../Model/Model.h"
 #include "../EulerCamera/EulerCamera.h"
 #include "../actions.h"
+#include"graphicsProject\ShaderProgram\ShaderProgram.h"
+#include"graphicsProject\Collision\Collidable.h"
 
 class Renderer
 {
@@ -28,6 +30,7 @@ class Renderer
 
 	GLuint m_programID;
 	GLuint m_matrixID;
+	ShaderProgram shader;
 
 	GLuint AmbientLightID;
 	GLuint LightPositionID;
@@ -38,6 +41,7 @@ class Renderer
 
 	std::vector< std::shared_ptr<Model> > m_models;
 	std::unique_ptr<EulerCamera> m_camera;
+	std::unique_ptr<Collidable> m_collidable;
 
 	GLuint m_rendering_modeID;
 	RenderingMode m_rendering_mode;

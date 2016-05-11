@@ -29,7 +29,7 @@ public:
     glm::mat4 get_view_matrix();
     void set_perspective_projection(float FOV, float aspectRatio, float near, float far);
     glm::mat4 get_projection_matrix();
-
+	glm::vec3 GetEyePosition();
     void reset(float eyeX, float eyeY, float eyeZ, float centerX, float centerY, float centerZ, float upX, float upY, float upZ);
     void reset(const glm::vec3 &eye, const glm::vec3 &center, glm::vec3  &up);
 

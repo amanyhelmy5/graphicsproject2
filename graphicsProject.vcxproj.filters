@@ -46,7 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="graphicsProject\graphicsProject.pro" />
-    <None Include="graphicsProject\MultiColor.fragmentshader" />
-    <None Include="graphicsProject\SimpleTransformWithColor.vertexshader" />
+    <None Include="MultiColor.fragmentshader" />
+    <None Include="SimpleTransformWithColor.vertexshader" />
   </ItemGroup>
 </Project>

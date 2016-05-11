@@ -88,12 +88,20 @@ void Model::initialize()
 		glGenBuffers(1, &m_UV_data_buffer_ID);
 		glBindBuffer(GL_ARRAY_BUFFER, m_UV_data_buffer_ID);
 		glBufferData(GL_ARRAY_BUFFER, UV_data.size() * sizeof(glm::vec2), &UV_data[0], GL_STATIC_DRAW);
+		//added
+		glEnableVertexAttribArray(2);
+		glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 0, (void*)0);
+
 	}
 	if (normals_data.size() > 0)
 	{
 		glGenBuffers(1, &m_normals_buffer_ID);
 		glBindBuffer(GL_ARRAY_BUFFER, m_normals_buffer_ID);
 		glBufferData(GL_ARRAY_BUFFER, normals_data.size() * sizeof(glm::vec3), &normals_data[0], GL_STATIC_DRAW);
+		//
+		glEnableVertexAttribArray(3);
+		glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
+
 	}
 }
 

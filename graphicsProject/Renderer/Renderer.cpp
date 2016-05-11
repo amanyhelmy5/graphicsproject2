@@ -46,14 +46,18 @@ void Renderer::draw()
     glm::mat4 VP = m_camera->get_projection_matrix() * m_camera->get_view_matrix();
 
     glm::mat4 squareMVP;
-
+	glm::mat4 modelm;
     //Render all the models
     for (int i = 0; i < m_models.size(); i++)
     {
         m_models[i]->bind_texture();
         squareMVP = VP * m_models[i]->get_model_matrix();
+		modelm = m_models[i]->get_model_matrix();
         glUniformMatrix4fv(m_matrixID, 1, GL_FALSE, &squareMVP[0][0]);
+		glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &modelm[0][0]);
 		m_models[i]->draw(vertexPosition_modelspaceID, inputColorID, texCoordID, vertexNormal_modelspaceID);
+		
+
     }
 
     m_camera->update_view_matrix();
@@ -82,8 +86,11 @@ void Renderer::initialize_shaders()
 
     m_rendering_modeID = glGetUniformLocation(m_programID,"RenderingMode");
 	vertexNormal_modelspaceID = glGetAttribLocation(m_programID, "vertexNormal_modelspace");
+
 	ModelMatrixID = glGetUniformLocation(m_programID, "ModelMatrix");
+
 	inputColorID = glGetAttribLocation(m_programID, "inputColor");
+
 	texCoordID = glGetAttribLocation(m_programID, "texCoord");
 
 }
@@ -109,7 +116,7 @@ void Renderer::clean_up()
 }
 void  Renderer::initialize_light()
 {
-	//setup the light position.
+	// Configure the light.
 	LightPositionID = glGetUniformLocation(m_programID, "LightPosition_worldspace");
 	lightPosition = glm::vec3(1.0, 0.25, 0.0);
 	glUniform3fv(LightPositionID, 1, &lightPosition[0]);
@@ -119,4 +126,7 @@ void  Renderer::initialize_light()
 	glUniform3fv(AmbientLightID, 1, &ambientLight[0]);
 	//setup the eye position.
 	EyePositionID = glGetUniformLocation(m_programID, "EyePosition_worldspace");
+	glUniform3fv(EyePositionID, 1, &(m_camera->GetEyePosition()[0]));
+//glUniform3fv(EyePositionID, 1,->GetEyePosition()[0]);
+
 }

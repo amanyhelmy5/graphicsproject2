@@ -121,3 +121,7 @@ void EulerCamera::fly(float distance)
 {
     m_position += distance * m_up;
 }
+glm::vec3  EulerCamera::GetEyePosition()
+{
+	return m_position;
+}
