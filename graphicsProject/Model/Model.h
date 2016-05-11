@@ -77,13 +77,13 @@ public:
 	 std::vector<glm::vec3> get_vertices();
 
      glm::mat4 get_model_matrix() const;
-     void set_translation(float x, float y, float z);
-     void set_rotation(float angle, float x, float y, float z);
-     void set_scale(float x, float y, float z);
+     virtual void set_translation(float x, float y, float z);
+     virtual void set_rotation(float angle, float x, float y, float z);
+     virtual void set_scale(float x, float y, float z);
 
-     void move(float x, float y, float z);
-     void rotate(float angle, float x, float y, float z);
-     void scale(float x, float y, float z);
+     virtual void move(float x, float y, float z);
+     virtual void rotate(float angle, float x, float y, float z);
+     virtual void scale(float x, float y, float z);
 
 };
 #endif // Model_h__

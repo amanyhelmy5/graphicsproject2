@@ -12,7 +12,7 @@ Level2::~Level2()
 void Level2::initialize()
 {
 	dead_body = std::shared_ptr<Collidable_Model>(new Collidable_Model("firstlevel/eaurupsoldier.obj", "firstlevel/africansoldier.png"));
-    skybox = std::shared_ptr<Collidable_Model>(new Collidable_Model("skybox/skybox.obj", "skygbox/skybox.png"));
+    skybox = std::shared_ptr<Collidable_Model>(new Collidable_Model("skybox/skybox.obj", "skybox/skybox.png"));
     dead_body->set_scale(300.10f, 300.10f, 300.10f);
     skybox->set_scale(100.0f, 100.0f, 100.0f);
     m_renderer->add_model(dead_body);
