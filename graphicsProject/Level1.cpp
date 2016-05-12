@@ -10,27 +10,33 @@ Level1::~Level1()
 
 void Level1::initialize()
 {
-    spider = std::shared_ptr<Collidable_Model>(new Collidable_Model("Spider/spider.obj", "Spider/SpiderTex.jpg"));
-    spider2 = std::shared_ptr<Collidable_Model>(new Collidable_Model("Spider/spider.obj", "Spider/SpiderTex.jpg"));
-    skybox = std::shared_ptr<Collidable_Model>(new Collidable_Model("skybox/skybox.obj", "skybox/skybox.png"));
-	spider->set_scale(0.1f, 0.1f, 0.1f);
-    spider2->set_scale(0.1f, 0.1f, 0.1f);
-    spider->move(0.0f, 0.0f, -50.0f);
-    spider2->move(0.0f, 10.0f, -50.0f);
-    skybox->set_scale(100.0f, 100.0f, 100.0f);
-	m_renderer->add_model(spider);
-    m_renderer->add_model(spider2);
-	m_renderer->add_model(skybox);
-    m_collision_manager->AddCollidableModel((Collidable*)spider.get());
-    m_collision_manager->AddCollidableModel((Collidable*)spider2.get());
+    house = std::shared_ptr<Collidable_Model>(new Collidable_Model("firstlevel/house.obj", "firstlevel/house.png"));
+	wall1 = std::shared_ptr<Collidable_Model>(new Collidable_Model("firstlevel/wall1.obj", "firstlevel/wall1.png"));
+	wall2 = std::shared_ptr<Collidable_Model>(new Collidable_Model("firstlevel/wall2.obj", "firstlevel/wall2.png"));
+	wall3 = std::shared_ptr<Collidable_Model>(new Collidable_Model("firstlevel/wall3.obj", "firstlevel/wall2.png"));
+
+	house->set_scale(100.f, 100.f, 100.f);
+	wall1->set_scale(60.f, 70.f, 90.f);
+	wall2->set_scale(99.f, 99.f, 99.f);
+	wall3->set_scale(99.f, 100.f, 99.f);
+
+	m_renderer->add_model(wall1);
+    m_renderer->add_model(wall2);
+	m_renderer->add_model(wall3);
+	m_renderer->add_model(house);
+
+    m_collision_manager->AddCollidableModel((Collidable*)wall1.get());
+    m_collision_manager->AddCollidableModel((Collidable*)wall2.get());
+	m_collision_manager->AddCollidableModel((Collidable*)wall3.get());
+	m_collision_manager->AddCollidableModel((Collidable*)house.get());
 }
 
  void Level1::update(float delta, Actions actions)
 {
     Game::update(delta, actions);
-    if (actions.forwards)
+  /*  if (actions.forwards)
 	{
         spider->rotate(40.0f, 1.0f, 0.0f, 0.0f);
         spider->move(0.0f, 0.3f, 0.0f);
-	}
+	}*/
 }

@@ -102,7 +102,8 @@ void Renderer::add_model(std::shared_ptr<Model> model)
 
 void Renderer::empty_models()
 {
-    m_models.clear();
+	if (m_models.size() > 0)
+		m_models.clear();
 }
 
 EulerCamera* Renderer::get_camera()

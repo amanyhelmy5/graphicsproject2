@@ -16,6 +16,7 @@ public:
 	void UpdateCollisions();
 	void RemoveCollidableModel(int model_Index);
 	void RemoveCollidableModel(Collidable* model);
+    void empty_collidable_models();
 	
 };
 

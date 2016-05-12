@@ -4,9 +4,13 @@
 class Level1: public Game
 {
 
-    std::shared_ptr<Collidable_Model> spider2;
-    std::shared_ptr<Collidable_Model> spider;
-
+    std::shared_ptr<Collidable_Model> wall1;
+    std::shared_ptr<Collidable_Model> wall2;
+	std::shared_ptr<Collidable_Model> wall3;
+	std::shared_ptr<Collidable_Model> house;
+	/*std::shared_ptr<Collidable_Model> spider;
+	std::shared_ptr<Collidable_Model> spider2;
+	std::shared_ptr<Collidable_Model> spider;*/
 public:
 	
     ~Level1 ();

@@ -22,7 +22,7 @@ Bounding_Box Collidable::Get_BoundingBox()
 
 Bounding_Box Collidable::CalculateBoundingBox(std::vector<glm::vec3> vertices, float boxOffset /*= 0.0f*/)
 {
-	glm::vec3 boxMin = glm::vec3(99999999.0f);
+    glm::vec3 boxMin = glm::vec3(99999999.0f);
 	glm::vec3 boxMax = glm::vec3(-99999999.0f);
 
 	for (int i = 0; i < vertices.size(); i++)
