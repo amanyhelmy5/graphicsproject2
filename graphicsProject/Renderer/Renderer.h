@@ -16,8 +16,8 @@
 #include "../Model/Model.h"
 #include "../EulerCamera/EulerCamera.h"
 #include "../actions.h"
-#include"graphicsProject\ShaderProgram\ShaderProgram.h"
-#include"graphicsProject\Collision\Collidable.h"
+#include "../ShaderProgram/ShaderProgram.h"
+#include "../Collision/Collidable.h"
 
 class Renderer
 {
