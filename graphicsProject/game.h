@@ -14,7 +14,20 @@ class ApplicationManager;
 
 class Game
 {
+    struct Vec3
+    {
+        float x;
+        float y;
+        float z;
+    };
+
+    float m_speed_limit = 10.0f;
+    Vec3 m_current_speed;
+    float m_acceleration_rate = 0.7f;
+
+    void round_speed();
 protected:
+
 	Renderer* m_renderer;
 	Collision_Manager* m_collision_manager;
     std::shared_ptr<Model> skybox;

@@ -12,6 +12,10 @@ Game::Game(Renderer * renderer, Collision_Manager * collision_manager, EulerCame
 	m_renderer = renderer;
 	m_collision_manager = collision_manager;
     m_camera = camera;
+
+    m_current_speed.x = 0.0f;
+    m_current_speed.y = 0.0f;
+    m_current_speed.z = 0.0f;
 }
 
 void Game::initialize()
@@ -20,22 +24,54 @@ void Game::initialize()
 
 void Game::update(float delta, Actions actions)
 {
-	float speed = 10.0f;
-    if (actions.forwards)
-        m_camera->walk(speed);
+    if (actions.forwards && m_current_speed.x < m_speed_limit)
+        m_current_speed.x += m_acceleration_rate;
+    if (actions.backwards && m_current_speed.x > -m_speed_limit)
+        m_current_speed.x -= m_acceleration_rate;
+    if (!actions.forwards && m_current_speed.x > 0)
+        m_current_speed.x -= m_acceleration_rate;
+    if (!actions.backwards && m_current_speed.x < 0)
+        m_current_speed.x += m_acceleration_rate;
 
-    if (actions.backwards)
-		m_camera->walk(-speed);
+    if (actions.right && m_current_speed.y < m_speed_limit)
+        m_current_speed.y += m_acceleration_rate;
+    if (actions.left && m_current_speed.y > -m_speed_limit)
+        m_current_speed.y -= m_acceleration_rate;
+    if (!actions.right && m_current_speed.y > 0)
+        m_current_speed.y -= m_acceleration_rate;
+    if (!actions.left && m_current_speed.y < 0)
+        m_current_speed.y += m_acceleration_rate;
 
-    if (actions.right)
-		m_camera->strafe(speed);
+    if (actions.jump && m_current_speed.z < m_speed_limit)
+        m_current_speed.z += m_acceleration_rate;
+    if (actions.fall && m_current_speed.z > -m_speed_limit)
+        m_current_speed.z -= m_acceleration_rate;
+    if (!actions.jump && m_current_speed.z > 0)
+        m_current_speed.z -= m_acceleration_rate;
+    if (!actions.fall && m_current_speed.z < 0)
+        m_current_speed.z += m_acceleration_rate;
 
-    if (actions.left)
-		m_camera->strafe(-speed);
+    round_speed();
 
-    if (actions.jump)
-		m_camera->fly(speed);
+    m_camera->walk  (m_current_speed.x);
+    m_camera->strafe(m_current_speed.y);
+    m_camera->fly   (m_current_speed.z);
+}
 
-    if (actions.fall)
-		m_camera->fly(-speed);
+
+void Game::round_speed()
+{
+    float rounding_const = 0.7f;
+    if (m_current_speed.x > -rounding_const && m_current_speed.x < rounding_const)
+        m_current_speed.x = 0.0f;
+    if (m_current_speed.x <  rounding_const && m_current_speed.x > rounding_const)
+        m_current_speed.x = 0.0f;
+    if (m_current_speed.y > -rounding_const && m_current_speed.y < rounding_const)
+        m_current_speed.y = 0.0f;
+    if (m_current_speed.y <  rounding_const && m_current_speed.y > rounding_const)
+        m_current_speed.y = 0.0f;
+    if (m_current_speed.z > -rounding_const && m_current_speed.z < rounding_const)
+        m_current_speed.z = 0.0f;
+    if (m_current_speed.z <  rounding_const && m_current_speed.z > rounding_const)
+        m_current_speed.z = 0.0f;
 }
