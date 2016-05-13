@@ -102,7 +102,7 @@ void Renderer::add_model(std::shared_ptr<Model> model)
 
 void Renderer::empty_models()
 {
-	if (m_models.size() > 0)
+    if (!m_models.empty())
 		m_models.clear();
 }
 

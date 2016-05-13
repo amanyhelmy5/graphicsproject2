@@ -12,7 +12,7 @@ Collision_Manager::~Collision_Manager(void)
 
 void Collision_Manager::UpdateCollisions()
 {
-	for (int i = 0; i < collidableModels.size(); i++)
+    for (int i = 0; i < collidableModels.size(); i++)
 	{
 		for (int j = i + 1; j < collidableModels.size(); j++)
 		{
@@ -55,7 +55,7 @@ void Collision_Manager::RemoveCollidableModel(Collidable* model)
 
 void Collision_Manager::empty_collidable_models()
 {
-	if (collidableModels.size() > 0)
+    if (!collidableModels.empty())
 		collidableModels.clear();
 }
 

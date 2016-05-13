@@ -18,7 +18,7 @@ void Level2::initialize()
     m_renderer->add_model(dead_body);
 	m_renderer->add_model(skybox);
 	m_collision_manager->AddCollidableModel((Collidable*)dead_body.get());
-	m_collision_manager->AddCollidableModel((Collidable*)skybox.get());
+    m_collision_manager->AddCollidableModel((Collidable*)skybox.get());
 }
 
 void Level2::update(float delta, Actions actions)
