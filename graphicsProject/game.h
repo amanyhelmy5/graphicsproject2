@@ -21,9 +21,9 @@ class Game
         float z;
     };
 
-    float m_speed_limit = 10.0f;
+    const float m_speed_limit = 20.0f;
     Vec3 m_current_speed;
-    float m_acceleration_rate = 0.7f;
+    const float m_acceleration_rate = 0.7f;
 
     void round_speed();
 protected:
