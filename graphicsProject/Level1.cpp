@@ -16,9 +16,13 @@ void Level1::initialize()
 	wall3 = std::shared_ptr<Collidable_Model>(new Collidable_Model("firstlevel/wall3.obj", "firstlevel/wall2.png"));
 
     house->set_scale(100.f, 100.f, 100.f);
-	wall1->set_scale(60.f, 70.f, 90.f);
-	wall2->set_scale(99.f, 99.f, 99.f);
-	wall3->set_scale(99.f, 100.f, 99.f);
+    house->move(0.f, -500.f, 0.f);
+    wall1->set_scale(60.f, 70.f, 90.f);
+    wall1->move(0.f, -500.f, 0.f);
+    wall2->set_scale(99.f, 99.f, 99.f);
+    wall2->move(0.f, -500.f, 0.f);
+    wall3->set_scale(99.f, 100.f, 99.f);
+    wall3->move(0.f, -500.f, 0.f);
 
 	m_renderer->add_model(wall1);
     m_renderer->add_model(wall2);

@@ -109,12 +109,15 @@ void EulerCamera::roll(float angle_degrees)
 
 void EulerCamera::walk(float distance)
 {
-    m_position += distance * m_direction;
+    glm::vec3 direction = m_direction;
+    direction.y = 0.0f;
+    direction = glm::normalize(direction);
+    m_position += distance * direction;
 }
 
 void EulerCamera::strafe(float distance)
 {
-    m_position += distance *m_right;
+    m_position += distance * m_right;
 }
 
 void EulerCamera::fly(float distance)
