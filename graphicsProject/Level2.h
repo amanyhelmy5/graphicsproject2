@@ -4,6 +4,14 @@
 class Level2 : public Game
 {
     std::shared_ptr<Collidable_Model> dead_body;
+	std::shared_ptr<Collidable_Model> house;
+	std::shared_ptr<Collidable_Model> enimy1;
+	std::shared_ptr<Collidable_Model> enimy2;
+	std::shared_ptr<Collidable_Model> enimy3;
+	std::shared_ptr<Collidable_Model> enimy4;
+	std::shared_ptr<Collidable_Model> enimy5;
+	std::shared_ptr<Collidable_Model> enimy6;
+	std::shared_ptr<Collidable_Model> enimy7;
 public:
 	
 
