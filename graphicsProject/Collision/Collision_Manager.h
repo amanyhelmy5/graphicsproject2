@@ -3,6 +3,7 @@
 
 #include <vector>
 #include "Collidable.h"
+#include "../types.h"
 
 class Collision_Manager
 {

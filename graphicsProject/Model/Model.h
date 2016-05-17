@@ -20,6 +20,8 @@
 
 #include "../Texture/texture.h"
 #include "../objloader.hpp"
+#include "../types.h"
+
 class Model
 {
     friend class Game;
@@ -76,6 +78,10 @@ public:
 	 void set_position(glm::vec3 position);
 	 void move();
 	 std::vector<glm::vec3> get_vertices();
+
+     state mystate;
+     virtual bool is_alive();
+     virtual void kill();
 
      glm::mat4 get_model_matrix() const;
      virtual void set_translation(float x, float y, float z);

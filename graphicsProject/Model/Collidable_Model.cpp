@@ -10,8 +10,9 @@ Collidable_Model::Collidable_Model(std::string path) : Model(path)
 {
 }
 
-Collidable_Model::Collidable_Model(std::string model_path, std::string path) : Model(model_path, path)
+Collidable_Model::Collidable_Model(std::string model_path, std::string path, ana_meen p_ana_meen) : Model(model_path, path)
 {
+    m_ana_meen = p_ana_meen;
 	initialize();
 }
 
@@ -65,4 +66,32 @@ void Collidable_Model::move(float x, float y, float z)
     m_position.y += y;
     m_position.z += z;
     bounding_box.Translate(x, y, z);
+}
+
+void Collidable_Model::destroy()
+{
+    m_state = state::DEAD;
+}
+
+bool Collidable_Model::is_dead()
+{
+    if (m_state == state::DEAD)
+        return true;
+    else
+        return false;
+}
+
+void Collidable_Model::Collided(Collidable* body)
+{
+    if (m_ana_meen == ana_meen::HERO)
+        std::cout << "ana hero" << std::endl;
+    else if (m_ana_meen == ana_meen::WALL)
+        std::cout << "ana wall" << std::endl;
+    else if (m_ana_meen == ana_meen::ENEMY)
+    {
+        std::cout << "ana enemy" << std::endl;
+        destroy();
+        kill();
+    }
+
 }

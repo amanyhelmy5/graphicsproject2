@@ -8,10 +8,12 @@
 #include "Collision/Collidable.h"
 
 class ApplicationManager;
+
 #include "Model/square.h"
 
 #include "actions.h"
-
+#include "types.h"
+#include"bullet.h"
 class Game
 {
     struct Vec3
@@ -24,7 +26,6 @@ class Game
     const float m_speed_limit = 20.0f;
     Vec3 m_current_speed;
     const float m_acceleration_rate = 0.7f;
-
     void round_speed();
 protected:
 

@@ -18,6 +18,7 @@
 #include "../actions.h"
 #include "../ShaderProgram/ShaderProgram.h"
 #include "../Collision/Collidable.h"
+#include "../bullet.h"
 
 class Renderer
 {
@@ -63,6 +64,7 @@ public:
 	void clean_up();
 
 	void add_model(std::shared_ptr<Model> model);
+    void remove_model(int model_index);
     void empty_models();
 
 	void initialize_shaders();

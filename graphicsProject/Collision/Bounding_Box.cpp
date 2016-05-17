@@ -27,7 +27,7 @@ void Bounding_Box::SetCenter(glm::vec3 fCenter)
 }
 
 void Bounding_Box::SetSize(glm::vec3 fSize)
-{
+{//zodel_In
 	size = fSize;
 	halfSize = size / 2.0f;
 }

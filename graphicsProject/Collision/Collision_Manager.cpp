@@ -19,9 +19,13 @@ void Collision_Manager::UpdateCollisions()
 		{
 			if (collidableModels[i]->Get_BoundingBox().IsIntersecting(collidableModels[j]->Get_BoundingBox()))
 			{
-				collidableModels[i]->Collided();
-				collidableModels[j]->Collided();
+                collidableModels[i]->Collided(collidableModels[j]);
+                collidableModels[j]->Collided(collidableModels[i]);
 			}
+            if (collidableModels[i]->is_dead())
+                RemoveCollidableModel(i);
+            if (collidableModels[j]->is_dead())
+                RemoveCollidableModel(j);
 		}
 	}
 }

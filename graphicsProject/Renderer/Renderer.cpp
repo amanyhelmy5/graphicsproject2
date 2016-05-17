@@ -57,10 +57,12 @@ void Renderer::draw()
 		glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &modelm[0][0]);
 		m_models[i]->draw(vertexPosition_modelspaceID, inputColorID, texCoordID, vertexNormal_modelspaceID);
 		
-
+        if (!m_models[i]->is_alive())
+            remove_model(i);
     }
 
     m_camera->update_view_matrix();
+
 }
 
 void Renderer::handle_player_actions(Actions actions)
@@ -100,6 +102,11 @@ void Renderer::add_model(std::shared_ptr<Model> model)
     m_models.push_back( model );
 }
 
+void Renderer::remove_model(int model_index)
+{
+    m_models.erase(m_models.begin() + model_index);
+}
+
 void Renderer::empty_models()
 {
     if (!m_models.empty())
@@ -127,7 +134,7 @@ void  Renderer::initialize_light()
 	glUniform3fv(AmbientLightID, 1, &ambientLight[0]);
 	//setup the eye position.
 	EyePositionID = glGetUniformLocation(m_programID, "EyePosition_worldspace");
-	glUniform3fv(EyePositionID, 1, &(m_camera->GetEyePosition()[0]));
+    glUniform3fv(EyePositionID, 1, &(m_camera->get_eye_position()[0]));
 //glUniform3fv(EyePositionID, 1,->GetEyePosition()[0]);
 
 }

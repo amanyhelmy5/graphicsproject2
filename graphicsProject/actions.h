@@ -8,6 +8,7 @@ struct Actions{
     bool backwards = false;
     bool jump = false;
     bool fall = false;
+    bool shoot = false;
 };
 
 #endif // ACTIONS_H

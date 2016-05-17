@@ -10,18 +10,17 @@
 //Note: this camera assumes left hand rule.
 class EulerCamera
 {
-    glm::vec3 m_position;
+   // glm::vec3 m_position;
     glm::vec3 m_up;
     glm::vec3 m_right;
-    glm::vec3 m_direction;
     glm::mat4 m_view_matrix;
     glm::mat4 m_projection_matrix;
 
     double m_angle_X, m_angle_Y, m_angle_Z;
 
-    glm::vec3 get_look_direction();
-
 public:
+    glm::vec3 m_position;
+    glm::vec3 m_direction;
 	EulerCamera(void);
 	~EulerCamera(void);
 
@@ -29,7 +28,9 @@ public:
     glm::mat4 get_view_matrix();
     void set_perspective_projection(float FOV, float aspectRatio, float near, float far);
     glm::mat4 get_projection_matrix();
-	glm::vec3 GetEyePosition();
+	glm::vec3 get_eye_position();
+    glm::vec3 get_look_direction();
+
     void reset(float eyeX, float eyeY, float eyeZ, float centerX, float centerY, float centerZ, float upX, float upY, float upZ);
     void reset(const glm::vec3 &eye, const glm::vec3 &center, glm::vec3  &up);
 

@@ -20,6 +20,7 @@ HEADERS += \
     actions.h \
     Model/square.h \
     game.h \
+    Collision/Collidable.h \
     Collision/Bounding_Box.h \
     Collision/Collision_Manager.h \
     ShaderProgram/ShaderProgram.h \
@@ -27,7 +28,8 @@ HEADERS += \
     Level1.h \
     Level2.h \
     Model/Collidable_Model.h \
-    Collision/Collidable.h
+    bullet.h \
+    types.h
 
 SOURCES += \
     Application_Manager/ApplicationManager.cpp \
@@ -41,6 +43,7 @@ SOURCES += \
     InputHandler/inputhandler.cpp \
     Model/square.cpp \
     game.cpp \
+    Collision/Collidable.cpp \
     Collision/Bounding_Box.cpp \
     Collision/Collision_Manager.cpp \
     ShaderProgram/ShaderProgram.cpp \
@@ -48,5 +51,5 @@ SOURCES += \
     Level1.cpp \
     Level2.cpp \
     Model/Collidable_Model.cpp \
-    Collision/Collidable.cpp
+    bullet.cpp
 

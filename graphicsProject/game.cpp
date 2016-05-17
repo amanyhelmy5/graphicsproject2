@@ -55,7 +55,12 @@ void Game::update(float delta, Actions actions)
 
     m_camera->walk  (m_current_speed.x);
     m_camera->strafe(m_current_speed.y);
-    m_camera->fly   (m_current_speed.z);
+    //m_camera->fly   (m_current_speed.z);
+
+    if (actions.jump)
+    {
+        Bullet(m_camera->get_eye_position(), m_camera->m_direction, m_collision_manager);
+    }
 }
 
 

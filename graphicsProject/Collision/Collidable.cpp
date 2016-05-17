@@ -1,12 +1,12 @@
 #include "Collidable.h"
 
 
-Collidable::Collidable(void)
+Collidable::Collidable()
 {
 }
 
 
-Collidable::~Collidable(void)
+Collidable::~Collidable()
 {
 }
 
@@ -17,7 +17,19 @@ void Collidable::Set_BoundingBox(Bounding_Box fBoundingBox)
 
 Bounding_Box Collidable::Get_BoundingBox()
 {
-	return boundingBox;
+    return boundingBox;
+}
+void Collidable::destroy()
+{
+    m_state = state::DEAD;
+}
+
+bool Collidable::is_dead()
+{
+    if (m_state == state::DEAD)
+        return true;
+    else
+        return false;
 }
 
 Bounding_Box Collidable::CalculateBoundingBox(std::vector<glm::vec3> vertices, float boxOffset /*= 0.0f*/)
@@ -54,8 +66,8 @@ Bounding_Box Collidable::CalculateBoundingBox(std::vector<glm::vec3> vertices, f
 	return box;
 }
 
-void Collidable::Collided()
+void Collidable::Collided(Collidable* body)
 {
-	//we just want to display the address of the collided object to make sure that collision happened for each object.
-	printf("I've collided! my address is %p \n", static_cast<void const *>(this));
+    //we just want to display the address of the collided object to make sure that collision happened for each object.
+    printf("I've collided! my address is %p \n", static_cast<void const *>(this));
 }

@@ -38,6 +38,7 @@ InputHandler::InputHandler(Renderer* renderer, GLFWwindow* window)
     m_Y_mouse_position = ApplicationManager::WINDOW_SIZE_HEIGHT/2;
     glfwSetCursorPos(window, m_X_mouse_position, m_Y_mouse_position);
     glfwSetCursorPosCallback(window, &this->mouse_moved);
+    //glfwSetMouseButtonCallback(window, &this->mouse_button_clicked);
 }
 
 // Keyboard pressing event
@@ -146,4 +147,9 @@ void InputHandler::handle_mouse_input()
         m_Y_mouse_position = ApplicationManager::WINDOW_SIZE_HEIGHT/2;
         glfwSetCursorPos(m_window,m_X_mouse_position,m_Y_mouse_position);
     }
+}
+
+void InputHandler::mouse_button_clicked()
+{
+
 }

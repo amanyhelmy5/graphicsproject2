@@ -1,13 +1,8 @@
 #include "Model.h"
 
-
-glm::mat4 Model::get_model_matrix() const
-{
-    return m_model_matrix;
-}
-
 Model::Model(void)
 {
+    mystate = state::ALIVE;
     set_translation(0.0f, 0.0f, 0.0f);
     set_rotation(0.0f, 1.0f, 0.0f, 0.0f);
     set_scale(1.0f, 1.0f, 1.0f);
@@ -15,6 +10,7 @@ Model::Model(void)
 
 Model::Model(std::string path)
 {
+    mystate = state::ALIVE;
     set_translation(0.0f, 0.0f, 0.0f);
     set_rotation(0.0f, 1.0f, 0.0f, 0.0f);
 
@@ -26,6 +22,7 @@ Model::Model(std::string path)
 
 Model::Model(std::string model_path, std::string path = "")
 {
+    mystate = state::ALIVE;
     set_translation(0.0f, 0.0f, 0.0f);
     set_rotation(0.0f, 1.0f, 0.0f, 0.0f);
     set_scale(1.0f, 1.0f, 1.0f);
@@ -36,6 +33,11 @@ Model::Model(std::string model_path, std::string path = "")
 
 Model::~Model(void)
 {
+}
+
+glm::mat4 Model::get_model_matrix() const
+{
+    return m_model_matrix;
 }
 
 void Model::set_texture(std::string path)
@@ -228,5 +230,19 @@ void Model::clean_up()
 
 std::vector<glm::vec3>Model::get_vertices()
 {
-	return vertex_data;
+    return vertex_data;
+}
+
+bool Model::is_alive()
+{
+    if (mystate == state::DEAD)
+        return false;
+    else
+        return true;
+
+}
+
+void Model::kill()
+{
+    mystate = state::DEAD;
 }
