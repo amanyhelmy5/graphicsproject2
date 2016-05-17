@@ -15,6 +15,7 @@ void Collision_Manager::UpdateCollisions()
     for (int i = 0; i < collidableModels.size(); i++)
 	{
 		for (int j = i + 1; j < collidableModels.size(); j++)
+
 		{
 			if (collidableModels[i]->Get_BoundingBox().IsIntersecting(collidableModels[j]->Get_BoundingBox()))
 			{

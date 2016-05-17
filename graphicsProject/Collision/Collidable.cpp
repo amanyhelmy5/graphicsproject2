@@ -40,17 +40,17 @@ Bounding_Box Collidable::CalculateBoundingBox(std::vector<glm::vec3> vertices, f
 			}
 		}
 	}
-	glm::vec3 boxCenter = (boxMax + boxMin) / 2.0f;
+    glm::vec3 boxCenter = (boxMax + boxMin) / 2.0f;
 	glm::vec3 boxSize = boxMax - boxMin;
 	//if we want to make the box larger or smaller than the original object's bounding box.
-	boxSize += boxOffset;
+    boxSize += boxOffset;
 
 	if (boxSize.x <0.0f || boxSize.y<0.0f || boxSize.z<0.0f)
 	{
 		throw std::runtime_error("ERROR: bounding box size cannot be less than zero!");
 	}
 
-	Bounding_Box box(glm::vec3(0), boxSize);
+    Bounding_Box box(boxCenter, boxSize);
 	return box;
 }
 
