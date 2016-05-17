@@ -9,6 +9,8 @@
 
 class Collidable
 {
+protected:
+
 	Bounding_Box boundingBox;
 
 public:
@@ -16,10 +18,10 @@ public:
 	~Collidable(void);
 	void Set_BoundingBox(Bounding_Box fBoundingBox);
 	Bounding_Box Get_BoundingBox();
-	
-	static Bounding_Box CalculateBoundingBox(std::vector<glm::vec3> vertices, float boxOffset = 0.0f);
 
-	//to handles different collision
+	static Bounding_Box CalculateBoundingBox(std::vector<glm::vec3> vertices, float boxOffset = 0.0f);
+    //to handles different collision
 	virtual void Collided();
+
 };
 #endif // Collidable_Model_h__

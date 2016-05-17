@@ -20,6 +20,7 @@
     <ClCompile Include="graphicsProject\Texture\Texture_Loader\stb_image.c" />
     <ClCompile Include="graphicsProject\Model\Collidable_Model.cpp" />
     <ClCompile Include="graphicsProject\Collision\Collidable.cpp" />
+    <ClCompile Include="graphicsProject\bullet.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="graphicsProject\actions.h" />
@@ -39,6 +40,7 @@
     <ClInclude Include="graphicsProject\Texture\Texture_Loader\stb_image.h" />
     <ClInclude Include="graphicsProject\Model\Collidable_Model.h" />
     <ClInclude Include="graphicsProject\Collision\Collidable.h" />
+    <ClInclude Include="graphicsProject\bullet.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="graphicsProject\bricks.jpg" />

@@ -28,7 +28,7 @@ Bounding_Box Collidable::CalculateBoundingBox(std::vector<glm::vec3> vertices, f
 	for (int i = 0; i < vertices.size(); i++)
 	{
 		//check each dimension
-		for (int j = 0; j < 3; j++)
+		for (int j = 0; j < 3; j++) 
 		{
 			if (boxMin[j] > vertices[i][j])
 			{
