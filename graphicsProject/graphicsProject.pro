@@ -29,7 +29,8 @@ HEADERS += \
     Level2.h \
     Model/Collidable_Model.h \
     bullet.h \
-    types.h
+    types.h \
+    SoundManager/sound.h
 
 SOURCES += \
     Application_Manager/ApplicationManager.cpp \
@@ -51,5 +52,6 @@ SOURCES += \
     Level1.cpp \
     Level2.cpp \
     Model/Collidable_Model.cpp \
-    bullet.cpp
+    bullet.cpp \
+    SoundManager/sound.cpp
 

@@ -61,11 +61,11 @@ bool ApplicationManager::initalize_application(int window_size_width, int window
 
     this->initialize_components(); // To be able to draw
     m_camera = m_renderer->get_camera();
-
+    m_sound = std::unique_ptr<Sound>(new Sound());
     m_input_handler = std::unique_ptr<InputHandler>( InputHandler::instance(this->m_renderer.get(), this->m_window) );
     m_collision_manager = std::unique_ptr<Collision_Manager>(new Collision_Manager());
-    m_levels.push_back(  std::unique_ptr<Level1>(new Level1(m_renderer.get(), m_collision_manager.get(), m_camera)));
-    m_levels.push_back(std::unique_ptr<Level2>(new Level2(m_renderer.get(), m_collision_manager.get(), m_camera)));
+    m_levels.push_back(  std::unique_ptr<Level1>(new Level1(m_renderer.get(), m_collision_manager.get(), m_camera, m_sound.get())));
+    m_levels.push_back(std::unique_ptr<Level2>(new Level2(m_renderer.get(), m_collision_manager.get(), m_camera, m_sound.get())));
 
 	m_levels[current_level]->initialize();
 	return true;

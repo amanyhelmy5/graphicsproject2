@@ -15,7 +15,7 @@ class Level2 : public Game
 public:
 	
 
-    Level2(Renderer* renderer, Collision_Manager* collision_manager, EulerCamera* camera);
+    Level2(Renderer* renderer, Collision_Manager* collision_manager, EulerCamera* camera, Sound* sound);
     ~Level2();
 	
     virtual void initialize();

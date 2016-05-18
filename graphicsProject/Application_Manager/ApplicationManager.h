@@ -17,6 +17,7 @@
 #include "../Level1.h"
 #include "../Level2.h"
 #include "../Collision/Collision_Manager.h"
+#include "../SoundManager/sound.h"
 
 class InputHandler;
 
@@ -31,7 +32,9 @@ class ApplicationManager
     std::unique_ptr<Renderer> m_renderer;
 	std::vector < std::unique_ptr<Game> > m_levels;
     std::unique_ptr<InputHandler> m_input_handler;
+    std::unique_ptr<Sound> m_sound;
     EulerCamera* m_camera;
+
 
     void initialize_components();
     void update();

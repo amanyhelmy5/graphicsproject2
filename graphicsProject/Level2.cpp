@@ -1,7 +1,7 @@
 #include "Level2.h"
 
 
-Level2::Level2(Renderer* renderer, Collision_Manager* collision_manager, EulerCamera* camera) : Game(renderer, collision_manager, camera)
+Level2::Level2(Renderer* renderer, Collision_Manager* collision_manager, EulerCamera* camera, Sound* sound) : Game(renderer, collision_manager, camera, sound)
 {
 }
 

@@ -13,7 +13,9 @@ class ApplicationManager;
 
 #include "actions.h"
 #include "types.h"
-#include"bullet.h"
+#include "bullet.h"
+#include "SoundManager/sound.h"
+
 class Game
 {
     struct Vec3
@@ -33,9 +35,10 @@ protected:
 	Collision_Manager* m_collision_manager;
     std::shared_ptr<Model> skybox;
     EulerCamera* m_camera;
+    Sound* m_sound;
 
 public:
-    Game(Renderer* renderer, Collision_Manager* collision_manager, EulerCamera* m_camera);
+    Game(Renderer* renderer, Collision_Manager* collision_manager, EulerCamera* m_camera, Sound* sound);
     virtual ~Game();
     virtual void initialize();
     virtual void update(float delta, Actions actions);

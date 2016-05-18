@@ -26,7 +26,7 @@ class Level1: public Game
 public:
 	
     ~Level1 ();
-    Level1(Renderer* renderer, Collision_Manager* collision_manager, EulerCamera* camera);
+    Level1(Renderer* renderer, Collision_Manager* collision_manager, EulerCamera* camera, Sound* sound);
 
 
 

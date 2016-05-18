@@ -7,11 +7,12 @@ Game::~Game()
     m_collision_manager->empty_collidable_models();
 }
 
-Game::Game(Renderer * renderer, Collision_Manager * collision_manager, EulerCamera* camera)
+Game::Game(Renderer * renderer, Collision_Manager * collision_manager, EulerCamera* camera, Sound* sound)
 {
 	m_renderer = renderer;
 	m_collision_manager = collision_manager;
     m_camera = camera;
+    m_sound = sound;
 
     m_current_speed.x = 0.0f;
     m_current_speed.y = 0.0f;
@@ -59,6 +60,7 @@ void Game::update(float delta, Actions actions)
 
     if (actions.jump)
     {
+        m_sound->play_sound("Sounds/pistol.ogg");
         Bullet(m_camera->get_eye_position(), m_camera->m_direction, m_collision_manager);
     }
 }
