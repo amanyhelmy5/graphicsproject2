@@ -2,6 +2,9 @@
 runs on qtcreator and visual studio and whatever else your heart desires ( ͡° ͜ʖ ͡°).
 </br>
 
+### Sound
+Sound currently only works on linux. Windows just needs to link the SDL/SDL-Mixer libs properly (no big deal). to get the sound clone the sound branch.</br>
+
 here is a list of package you'll need to install to get this up and running:</br>
 
 open the terminal and type the following: </br>
